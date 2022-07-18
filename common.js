@@ -1,9 +1,9 @@
 // 여러 함수에서 쓰일 공통 함수
 
-// 배열 오름차순 정렬 함수
+// 배열 내림차순 정렬 함수
 function sort_arr(arr) {
   arr.sort(function (a, b) {
-    return a - b;
+    return b - a;
   });
   return arr;
 }
