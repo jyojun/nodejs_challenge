@@ -84,3 +84,15 @@ let sorted_arr = sort_arr(arr)
 ```
 
 * 출처 : <https://ko.javascript.info/import-export>
+
+#### 실행 방법
+```shell
+# 클론 후 
+npm init
+
+package.json에 "type": "module" 추가 
+```
+```shell
+# 실행
+node index.js
+```
