@@ -2,7 +2,7 @@
 
 ## 체크 포인트 (해야 할 일)
 - [x] 페어 갯수를 리턴하는 함수
-- [ ] 다섯 숫자가 연속으로 나오는 지 판단하는 함수
+- [x] 다섯 숫자가 연속으로 나오는 지 판단하는 함수
 - [ ] 두 배열의 승자를 리턴하는 함수
 - [ ] 메인 함수
 ## 학습 메모
@@ -47,3 +47,40 @@ numbers.sort(function (a, b) {
 ```
 
 * 출처 : <https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort>
+
+#### 2. 모듈
+
+##### 2.1 export, import 
+- 변수나 함수, 클래스를 선언할 때 맨 앞에 export를 붙이면 내보내기가 가능하여 다른 파일에서도 활용 가능하다. 가져올 것이 많다면, 마지막 줄에 한꺼번에 내보내기도 가능하다. 
+
+```javascript
+export function sort_arr(arr) {j
+    arr.sort()
+    ...
+}
+```
+
+```javascript
+function sort_arr(arr) {
+    arr.sort()
+    ...
+}
+
+function sort_arr2(arr) {
+    arr.sort()
+    ...
+}
+
+export {sort_arr, sort_arr2}
+```
+
+- 외부에서 선언한 변수, 함수, 클래스를 가져올 때 import를 사용한다. (ex. import {...} ) 
+
+```javascript
+import {sort_arr, sort_arr2} from './common.js'
+
+let arr = [1,3,2,5,4];
+let sorted_arr = sort_arr(arr)
+```
+
+* 출처 : <https://ko.javascript.info/import-export>
