@@ -51,11 +51,11 @@ ssh 접속을 위한 포트번호는 2222번으로 설정
 visudo -f /etc/sudoers
 ```
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%204.png)
+![image](https://user-images.githubusercontent.com/64758931/179698755-bcb5640b-c399-4887-99b8-4e826b25d142.png)
 
 - 다음과 같이 sudo -i를 통해 root 권한을 얻었다.
+![스크린샷 2022-07-19 오후 4 21 02](https://user-images.githubusercontent.com/64758931/179698827-c78f2008-3793-4892-a11f-c5233745b533.png)
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%205.png)
 
 - /monitoring 디렉토리를 설정 한 후, chmod로 접근 권한을 변경한다.
 
@@ -68,11 +68,11 @@ chmod 764 monitoring
 ls -al # monitoring 의 접근 권한 확인
 ```
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%206.png)
+![image](https://user-images.githubusercontent.com/64758931/179698989-2296abbf-acb5-4a25-abe0-6da9a066165f.png)
 
 - date 출력
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%207.png)
+![image](https://user-images.githubusercontent.com/64758931/179699032-cae219c3-6674-485b-99b4-9a836b5a833d.png)
 
 - [ ] node.js 설치 및 Day1 js파일 실행
 
