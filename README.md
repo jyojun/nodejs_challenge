@@ -54,8 +54,7 @@ visudo -f /etc/sudoers
 ![image](https://user-images.githubusercontent.com/64758931/179698755-bcb5640b-c399-4887-99b8-4e826b25d142.png)
 
 - 다음과 같이 sudo -i를 통해 root 권한을 얻었다.
-![스크린샷 2022-07-19 오후 4 21 02](https://user-images.githubusercontent.com/64758931/179698827-c78f2008-3793-4892-a11f-c5233745b533.png)
-
+  ![스크린샷 2022-07-19 오후 4 21 02](https://user-images.githubusercontent.com/64758931/179698827-c78f2008-3793-4892-a11f-c5233745b533.png)
 
 - /monitoring 디렉토리를 설정 한 후, chmod로 접근 권한을 변경한다.
 
@@ -75,6 +74,35 @@ ls -al # monitoring 의 접근 권한 확인
 ![image](https://user-images.githubusercontent.com/64758931/179699032-cae219c3-6674-485b-99b4-9a836b5a833d.png)
 
 - [ ] node.js 설치 및 Day1 js파일 실행
+- curl 설치 - curl은 서버와 통신할 수 있는 커맨드 명령어 툴이자 웹개발에 많이 사용되는 오픈소스이다. 우분투 가상환경에 curl을 설치한다.
+
+```bash
+sudo apt-get install -y curl
+```
+
+- nodejs 설치 - 우분투 apt 패키지에 들어있는 Node.js를 설치한다.
+
+```bash
+sudo apt install nodejs
+```
+
+- 버전 확인
+
+```bash
+nodejs -v # 12.22.9 version
+```
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%208.png)
+
+- 가상환경에 git clone(파일 복사)을 위한 apt 패키지에서 git, 그리고 NodeJS 패키지 매니저 npm도 같이 설치
+
+```bash
+sudo apt install git npm
+```
+
+- Day1의 gist를 클론을 한 뒤, 해당 폴더에 node index.js로 실행시켜준다.
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%209.png)
 
 ## 학습 메모
 
