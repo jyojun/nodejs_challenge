@@ -4,7 +4,7 @@
 
 - [x] 가상환경 설치
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled.png)
+![image](https://user-images.githubusercontent.com/64758931/179688073-00f8e513-9a81-4765-b4d0-c5ec7d9da93d.png)
 
 - [x] ssh 접속 설정
 
@@ -22,7 +22,7 @@ service ssh status # 서버 상태 확인
 sudo adduser <새로운 유저네임>
 ```
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%201.png)
+![image](https://user-images.githubusercontent.com/64758931/179688241-dd50f4f9-422f-4d8c-9a77-fa930f41434b.png)
 
 [https://zyari.tistory.com/25](https://zyari.tistory.com/25) - ssh 연결
 
@@ -35,13 +35,13 @@ sudo apt-get install net-tools # ifconfig ip를 확인하기 위함
 ssh <hostname>@localhost -p 2222 # 포트번호 설정
 ```
 
-![ssh 접속을 위한 포트번호는 2222번으로 설정 ](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%202.png)
+![스크린샷 2022-07-19 오후 3 19 58](https://user-images.githubusercontent.com/64758931/179688362-4d4190c6-4e17-4f31-8ab2-1d87349bfa84.png)
 
 ssh 접속을 위한 포트번호는 2222번으로 설정
 
 - local 컴퓨터에 ssh로 ubuntu 서버 접속 및 로그인
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%203.png)
+![image](https://user-images.githubusercontent.com/64758931/179688762-34e56293-dbfe-41bd-9e76-79b8b7cc66b2.png)
 
 - [ ] root 경로에 monitoring 디렉토리 생성, 접근권한 변경
 - [ ] node.js 설치 및 Day1 js파일 실행
