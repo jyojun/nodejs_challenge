@@ -2,7 +2,7 @@
 
 ## 체크 포인트 (해야 할 일)
 
-### 1. 가상머신 
+### 1. 가상머신
 
 - [x] 가상환경 설치
 
@@ -108,6 +108,54 @@ sudo apt install git npm
 
 ### 2. 쉘 스크립트
 
+- [x] CPU 사용률ㅇ르 가져와 user 모드 사용률을 계산하여 환경 변수에 저장하는 스크립트를 생성한다.
+
+```shell
+#?/bash/sh
+CPU_PERCENT=`cat /proc/stat | grep -m 1 cpu | awk {'print $2*100 / ($2+$3+$4+$5)'}`
+```
+
+- top 명령어를 사용하면 메모리 사용량, CPU 사용량 등을 나타내준다. 그에 대한 정보는 /proc/stat 파일에 저장되어 있다.
+- cat /proc/stat 명령어를 통해서 cpu값을 확인하면 가장 위 cpu 값이 차례대로 user모드, nice user모드, system모드, idle 상태를 나타낸다. user 모드 사용률 = (user 모드) \* 100 / cpu 전체값
+- cpu 전체값 = user모드 + nice user 모드 + system 모드 + idle 상태
+- grep 명령어는 리눅스에서 cpu 에서 특정 문자열이나 정규식을 포함한 행을 출력해주는 명령어이다. -m 옵션을 통해 가장 위 전체 cpu 행만 출력한다.
+- awk는 기본적으로 입력 데이터를 라인단위의 레코드로 인식한다. → $ 2,3,4,5는 출력 값의 그 줄의 2,3,4,5번째 데이터를 뜻하며, 각각 user모드, nice user 모드, system 모드, idle 상태값을 의미한다. $1은 cpu 문자열이다.
+
+- [x] contrab 1분마다 동작하도록 설정했다.
+
+```shell
+# chrontab 설정
+contrab -e
+
+# /monitoring/test.sh 파일 실행 1분마다
+*/1 * * * * contrab /monitoring/test.sh
+```
+
+Link: https://jdm.kr/blog/2
+
+- [ ] 3번 연속으로 CPU 사용률이 넘으면 curl 명령어를 실행했다.
+
+-> 충족시키지 못함.
+
+- [x] CPU 사용률 70% 이상 올리는 도구를 활용했다.
+
+- stress 모듈을 사용하면 CPU 사용률이 100%로 할당되게 된다.
+
+```shell
+# Ubuntu 환경
+sudo apt-get install -y stress
+
+stress --cpu <할당할 cpu 갯수> --timeout <할당받을 시간>
+```
+
+Link: https://medium.com/sjk5766/linux-cpu-%EA%B0%95%EC%A0%9C%EB%A1%9C-%EB%86%92%EC%9D%B4%EB%8A%94-%EB%B0%A9%EB%B2%95-8f47843acf9d
+
+#### Code
+
+```shell
+#?/bash/sh
+CPU_PERCENT=`cat /proc/stat | grep -m 1 cpu | awk {'print $2*100 / ($2+$3+$4+$5)'}`
+```
 
 ## 학습 메모
 
