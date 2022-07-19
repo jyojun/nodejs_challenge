@@ -43,7 +43,52 @@ ssh 접속을 위한 포트번호는 2222번으로 설정
 
 ![image](https://user-images.githubusercontent.com/64758931/179688762-34e56293-dbfe-41bd-9e76-79b8b7cc66b2.png)
 
-- [ ] root 경로에 monitoring 디렉토리 생성, 접근권한 변경
+- [x] root 경로에 monitoring 디렉토리 생성, 접근권한 변경
+- 일반 계정에 sudo 권한 부여 (일반 계정은 sudoers에 포함되어있지 않기 때문에, 관리자가 /etc/sudoers #파일에 일반계정을 입력하고, 허용할 권한을 주어야 한다.
+
+```bash
+# 관리자 계정으로 설정
+visudo -f /etc/sudoers
+```
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%204.png)
+
+- 다음과 같이 sudo -i를 통해 root 권한을 얻었다.
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%205.png)
+
+- /monitoring 디렉토리를 설정 한 후, chmod로 접근 권한을 변경한다.
+
+```bash
+mkdir /monitoring # root 경로에 monitoring 디렉토리 생성
+cd / # root 경로
+chmod 764 monitoring
+
+# 가상환경에서 확인
+ls -al # monitoring 의 접근 권한 확인
+```
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%206.png)
+
+- date 출력
+
+![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%207.png)
+
 - [ ] node.js 설치 및 Day1 js파일 실행
 
 ## 학습 메모
+
+#### 파일접근 권한 설정
+
+- 폴더 내에 있는 파일을 조회하기 위해tj ls -l 명령어를 사용한다.
+
+- 폴더 권한을 부여하기 위해 chmod를 사용하는데, chmod [a,u,g,o][+,-,=][r,w,x] 순으로 선택하여 조합할 수 도 있고, r - 읽기 (4), w - 쓰기(2), x - 실행(1) 의 조합으로 숫자로 설정 해줄 수 있다.
+- 문제에 제시된 764 권한은 소유자에게 읽기, 쓰기, 실행권한, 그룹 사용자에게 읽기 및 쓰기, 기타 사용자에게 읽기 권한만을 부여한다.
+
+Link: https://brunch.co.kr/@jehovah/12
+
+#### 포트포워딩
+
+- 버추얼박스에서 가상 머신의 네트워크를 NAT Network로 하면, 호스트에서 가상머신으로 접속할 수 없다. 리눅스 OS에서 직접 명령어를 입력하는것이 어렵기 때문에 포트포워딩을 사용하여 호스트에서 SSH 접속을 할 수 있다.
+
+Link: https://www.manualfactory.net/12089
