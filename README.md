@@ -2,6 +2,8 @@
 
 ## 체크 포인트 (해야 할 일)
 
+### 1. 가상머신 
+
 - [x] 가상환경 설치
 
 ![image](https://user-images.githubusercontent.com/64758931/179688073-00f8e513-9a81-4765-b4d0-c5ec7d9da93d.png)
@@ -73,7 +75,7 @@ ls -al # monitoring 의 접근 권한 확인
 
 ![image](https://user-images.githubusercontent.com/64758931/179699032-cae219c3-6674-485b-99b4-9a836b5a833d.png)
 
-- [ ] node.js 설치 및 Day1 js파일 실행
+- [x] node.js 설치 및 Day1 js파일 실행
 - curl 설치 - curl은 서버와 통신할 수 있는 커맨드 명령어 툴이자 웹개발에 많이 사용되는 오픈소스이다. 우분투 가상환경에 curl을 설치한다.
 
 ```bash
@@ -92,7 +94,7 @@ sudo apt install nodejs
 nodejs -v # 12.22.9 version
 ```
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%208.png)
+![image](https://user-images.githubusercontent.com/64758931/179706511-8f532564-8d9e-4dea-af09-de6b3be915f7.png)
 
 - 가상환경에 git clone(파일 복사)을 위한 apt 패키지에서 git, 그리고 NodeJS 패키지 매니저 npm도 같이 설치
 
@@ -102,7 +104,10 @@ sudo apt install git npm
 
 - Day1의 gist를 클론을 한 뒤, 해당 폴더에 node index.js로 실행시켜준다.
 
-![Untitled](Day%202%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205273d592436c4d6b95369d57d29dcc2d/Untitled%209.png)
+![image](https://user-images.githubusercontent.com/64758931/179706553-f7053e12-0e77-4154-b455-1725f9b2d70a.png)
+
+### 2. 쉘 스크립트
+
 
 ## 학습 메모
 
