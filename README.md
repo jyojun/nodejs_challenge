@@ -31,6 +31,11 @@ const getHtml = async (keyword) => {
 
 - [x] cheerio 라이브러리를 사용하여 가져온 HTML 데이터를 파싱한다.
 
+![스크린샷 2022-07-20 오후 5 32 41](https://user-images.githubusercontent.com/64758931/179936421-f8b17140-d6ba-4ec3-bffc-2d1f24ca4493.png)
+
+![image](https://user-images.githubusercontent.com/64758931/179936377-09e7269a-fede-4265-a26e-b50c23fa70e2.png)
+
+
 ```javascript
 const cheerio = require("cheerio");
 
@@ -75,6 +80,9 @@ const parsing = async (keyword) => {
 - 네이버 개발자 도구를 살펴보면 total_wrap api_ani_send에 게시글 박스들의 정보가 들어있다.
 - 이중 .total_tit_group 에는 (제목, 링크), .api_txt_lines 클래스에는 미리보기 정보가 들어있다.
 - .total_tit_group에서 제목과 링크는 각각 .total_tit, .total_source selector를 사용한다.
+
+![image](https://user-images.githubusercontent.com/64758931/179935964-b5956bb5-192d-458e-a3b1-17204ac775cb.png)
+
 
 ## 학습 메모
 
