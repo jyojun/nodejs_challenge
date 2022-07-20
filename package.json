@@ -1,6 +1,7 @@
 {
   "name": "day3",
   "version": "1.0.0",
+  "type": "module",
   "description": "## 체크 포인트",
   "main": "index.js",
   "scripts": {
@@ -19,6 +20,7 @@
   "homepage": "https://gist.github.com/6a9cb54b67a2032c4bd18ab90a89ae55",
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "readline-sync": "^1.4.10"
   }
 }
