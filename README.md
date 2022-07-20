@@ -106,7 +106,7 @@ rl.on("line", function (line) {
 ```
 
 
-- [ ] LRU 알고리즘 구현 (GET, SET)
+- [x] LRU 알고리즘 구현 (GET, SET)
 
 ## 학습 메모
 
