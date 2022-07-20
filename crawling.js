@@ -1,6 +1,23 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let keyword = "";
+console.log("키워드 입력 : ");
+rl.on("line", function (line) {
+  keyword = line;
+  rl.close();
+}).on("close", function () {
+  parsing(keyword);
+  // process.exit();
+});
+
 const getHtml = async (keyword) => {
   try {
     return await axios.get(
@@ -47,5 +64,3 @@ const parsing = async (keyword) => {
     }
   });
 };
-
-parsing("youtube");

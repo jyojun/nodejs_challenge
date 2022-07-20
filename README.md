@@ -84,6 +84,30 @@ const parsing = async (keyword) => {
 ![image](https://user-images.githubusercontent.com/64758931/179935964-b5956bb5-192d-458e-a3b1-17204ac775cb.png)
 
 
+- [x] 콘솔 입출력으로 크롤링을 진행한다.
+```javascript
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let keyword = "";
+console.log("키워드 입력 : ");
+
+rl.on("line", function (line) {
+  keyword = line;
+  rl.close();
+}).on("close", function () {
+  parsing(keyword);
+  // process.exit();
+});
+```
+
+
+- [ ] LRU 알고리즘 구현 (GET, SET)
+
 ## 학습 메모
 
 #### 필요한 라이브러리
