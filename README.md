@@ -146,9 +146,11 @@ do {
 #### 실행 결과
 - google, apple, apple, apple, apple, google, $cache 입력시
 -> google, apple 각각 3,2 번 hit count 발생 
+![image](https://user-images.githubusercontent.com/64758931/179998818-f6bd6c5e-26b7-4fd0-8065-206a73136d27.png)
+
 - google, apple, amazon, naver, boostcamp, nike $cache 입력시
 -> capacity 5개 초과로 입력시 가장 오래전에 호출한 google이 삭제되고 nike가 캐시에 적재된다. 
-
+![image](https://user-images.githubusercontent.com/64758931/179998889-a9dddcfb-0181-4ff5-99f9-a72bd0184f22.png)
 ## 학습 메모
 
 #### 필요한 라이브러리
