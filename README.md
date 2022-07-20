@@ -106,7 +106,48 @@ rl.on("line", function (line) {
 ```
 
 
-- [ ] LRU 알고리즘 구현 (GET, SET)
+-> 입력값을 받을 때, readlineSync 모듈로 변경하였다.
+```javascript
+// index.js
+do {
+  keyword = readlineSync.question("키워드를 입력하세요 (x를 누르면 종료) ");
+  if (keyword === "x") {
+    break;
+  }
+  if (keyword === "$cache") {
+    // $cache를 입력하면 keyword가 입력
+    cache.showKeyword();
+    continue;
+  }
+  let result = await parsing(keyword);
+
+  cache.get(keyword);
+  cache.set(keyword, result);
+  cache.show(keyword);
+} while (1);
+``` 
+
+- [x] LRU 알고리즘 구현 (GET, SET)
+
+1. 클래스를 이용하여 Cache를 구현한다.
+2. Cache 클래스 객체를 생성할 때는, capacity를 설정한다. (ex: cache = new Cache(5))
+3. Cache 객체는 get(), set() 메소드가 있는데, 연결리스트로 구현한다.
+  * get() 메소드
+    * 캐시에 키워드가 존재한다면 다시 맨 뒤로 갱신한다.
+    * 캐시 안에 이미 존재한다면, hitCount를 1씩 추가한다.
+
+  * set() 메소드
+    * 캐시에 키워드가 존재한다면, 갱신해준다. 이때, 해당 키워드 데이터가 10개가 넘어가면 앞에서 잘라준다.
+    * 캐시에 없고, 이미 꽉차있는 캐시라면 가장 오래된 맨 앞 키워드를 삭제하고 적재한다.
+
+  * 그 외, $cache를 입력받았을 때, 캐시속 전체 키워드와 그에 해당하는 hitCount를 출력하는 메소드도 포함.
+
+
+#### 실행 결과
+- google, apple, apple, apple, apple, google, $cache 입력시
+-> google, apple 각각 3,2 번 hit count 발생 
+- google, apple, amazon, naver, boostcamp, nike $cache 입력시
+-> capacity 5개 초과로 입력시 가장 오래전에 호출한 google이 삭제되고 nike가 캐시에 적재된다. 
 
 ## 학습 메모
 
@@ -145,9 +186,20 @@ $(선택자).동작함수();
 4. ID 선택자
    - id 특성에 따라 요소를 선택한다. 문서 내에는 주어진 id를 가진 요소가 하나만 존재해야한다.
    - ex) #toc는 id="toc"을 가진 요소와 일치
-
 Link: https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Selectors
+5. LRU 알고리즘
+   - https://dailylifeofdeveloper.tistory.com/355
+
 
 #### 오류 해결방법
 
 - https://hashcode.co.kr/questions/9521/nodejs-%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%A0%91%EA%B7%BC-%EC%8B%9C-request-path-contains-unescaped-characters-%EC%97%90%EB%9F%AC - request path contains unescaped characters 에러
+
+
+#### 실행
+```shell
+git clone https://gist.github.com/jyojun/6a9cb54b67a2032c4bd18ab90a89ae55 day3
+cd day3
+npm install
+node index.js
+```
