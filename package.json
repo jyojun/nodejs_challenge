@@ -1,0 +1,21 @@
+{
+  "name": "day4",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크리스트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/ba0c345f0fcc371d6dc8391578c282d1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/ba0c345f0fcc371d6dc8391578c282d1"
+  },
+  "homepage": "https://gist.github.com/ba0c345f0fcc371d6dc8391578c282d1"
+}
