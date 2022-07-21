@@ -112,6 +112,8 @@ call(name, paramCount) {
 - 메모리 전체를 초기화한다. (reset)
   
 #### 실행 결과
+![image](https://user-images.githubusercontent.com/64758931/180267781-fd1cc591-75f9-4923-8778-cba65da4e794.png)
+
 
 ## 학습 메모
 
@@ -161,7 +163,7 @@ console.log(c);	// {id: 'yoy', pw: 1234, gender: 'F'}
 
 위 코드를 실행하면 const 로 object가 선언 됐지만 에러가 발생하지 않고 정상적으로 작동한다. 왜 그럴까? 
 
-![Untitled](Day%204%20%E1%84%92%E1%85%A1%E1%86%A8%E1%84%89%E1%85%B3%E1%86%B8%20%E1%84%86%E1%85%A6%E1%84%86%E1%85%A9%205236670e737f4ab08012255f26b2ad03/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aa077115-0ed4-48bb-8069-70dd21aed5dd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220721%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220721T163817Z&X-Amz-Expires=86400&X-Amz-Signature=7a48042fd4b116d17a9d54a9f825d6f36afc057c21947f18518136cfec6a7d98&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 원시타입인 (string, number, boolean, null, undefiend)들은 콜스택에 주소와 값이 그대로 저장되지만 복잡한 객체와 같은 참조타입(Reference Type) 데이터는 힙 영역에 저장되고 콜스택에서 value는 참조타입의 데이터 값을 저장한 힙 영역의 주소를 가르키고 있기 때문이다. 
 
@@ -171,7 +173,7 @@ console.log(c);	// {id: 'yoy', pw: 1234, gender: 'F'}
 
 ### malloc 동작 방식
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191842dc-7ff5-4ee3-9afd-6a277c6dad70/Untitled.png)
+![image](https://user-images.githubusercontent.com/64758931/180267579-229a05b7-3a39-4ee1-ba56-50fe9b8ce281.png)
 
 -stack 은 일시적 메모리이며 함수가 끝나면 다시 반환을 해준다. 위 함수에서 p가 가리키는 것은 heap의 메모리 주소이며 free(p)를 해주면, p 주소에 위치한 메모리가 반환된다. 
 
