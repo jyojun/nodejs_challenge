@@ -13,7 +13,7 @@ class Memory {
   }
 }
 ```
-- [ ] stack, heap 영역 크기를 지정 (init)
+- [x] stack, heap 영역 크기를 지정 (init)
 
 ```javascript
   init(stackSize, heapSize) {
