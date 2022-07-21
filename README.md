@@ -2,7 +2,7 @@
 
 ## 체크리스트
 - [x] Memory 객체와 틀을 생성, 인스턴스 객체(stack, heap, stackPointer, 등등)
-```javscript
+```javascript
 class Memory {
   constructor() {
     this.stack = []; // 힙 주소를 담을 스택 : 힙의 주소를 갖고있다.
@@ -22,15 +22,43 @@ class Memory {
     return 0; // 기본 주소
   }
 ```
-- [ ] type 별 사이즈 지정 (setSize)
+- [x] type 별 사이즈 지정 (setSize)
 
 ```javascript
   setSize(type, length) {
     this.size.set(type, length);
   }
 ```
-- [ ] 힙 메모리 할당 malloc(type, count)
+- [x] 힙 메모리 할당 malloc(type, count)
 
+- 할당에 성공 시, 8바이트로 정렬된 메모리의 주소를 가리키는 포인터를 반환한다. 
+```javascript
+  // 이미 등록된 type에 대해 count만큼 반복하여 메모리를 할당하고, 시작 위치 고유한 주소를 스택영역에 추가 -> 스택 주소값을 리턴
+  malloc(type, count) {
+    const type_length = this.size.get(type);
+    let padding;
+    // 타입크기가 8보다 작을 경우 padding으로 8바이트를 채워줌.
+    if (type_length < 8) {
+      padding = 8 - type_length;
+    }
+
+    // 할당 시, 메모리의 주소를 가리키는 스택 포인터가 가리키는 heap 주소를 반환
+    let heapAddresses = [];
+
+    for (let i = 0; i < count; i++) {
+      this.memoryHeap[this.heapAddress] = {
+        type: type,
+        memory: type_length + padding,
+        stackPointer: this.stackPointer,
+      };
+      this.stack[this.stackPointer] = { heapAddress: this.heapAddress }; // 현재 스택 포인터에 heap의 주소를 넣는다.
+      heapAddresses.push(this.heapAddress);
+      // 메모리 힙에 할당 해줄 떄 마다, 스택 포인터는 더 위를 가리키고, heapAddress도 증가한다.
+      this.heapAddress += 1;
+      this.stackPointer += 1;
+    }
+  }
+```
 
 ## 학습 메모
 

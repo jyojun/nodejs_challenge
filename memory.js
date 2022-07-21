@@ -11,14 +11,45 @@ class Memory {
   init(stackSize, heapSize) {
     this.stack.length = stackSize;
     this.memoryHeap.length = heapSize;
-    return 0; // 기본 주소
+    return { stackAddress: 0, heapAddress: 0 }; // 기본 주소
   }
 
   // type 별로 고유한 사이즈를 가지도록 등록한다.
   setSize(type, length) {
+    if (this.size.has(type)) {
+      console.log("이미 등록한 Type은 변경할 수 없다.");
+      return;
+    }
     this.size.set(type, length);
   }
-  malloc(type, count) {} // 이미 등록된 type에 대해 count만큼 반복하여 메모리를 할당하고, 시작 위치 고유한 주소를 스택영역에 추가 -> 스택 주소값을 리턴
+
+  // 이미 등록된 type에 대해 count만큼 반복하여 메모리를 할당하고, 시작 위치 고유한 주소를 스택영역에 추가 -> 스택 주소값을 리턴
+  malloc(type, count) {
+    const type_length = this.size.get(type);
+    let padding;
+    // 타입크기가 8보다 작을 경우 padding으로 8바이트를 채워줌.
+    if (type_length < 8) {
+      padding = 8 - type_length;
+    }
+
+    // 할당 시, 메모리의 주소를 가리키는 스택 포인터가 가리키는 heap 주소를 반환
+    let heapAddresses = [];
+
+    for (let i = 0; i < count; i++) {
+      this.memoryHeap[this.heapAddress] = {
+        type: type,
+        memory: type_length + padding,
+        stackPointer: this.stackPointer,
+      };
+      this.stack[this.stackPointer] = { heapAddress: this.heapAddress }; // 현재 스택 포인터에 heap의 주소를 넣는다.
+      heapAddresses.push(this.heapAddress);
+      // 메모리 힙에 할당 해줄 떄 마다, 스택 포인터는 더 위를 가리키고, heapAddress도 증가한다.
+      this.heapAddress += 1;
+      this.stackPointer += 1;
+    }
+
+    return heapAddresses;
+  }
   free(pointer) {} // malloc 할 때 할당한 스택 주소값을 입력으로 받고, 스택 주소값에 있는 힙영역 고유주소를 찾아 해제 하고 반환한다.
   call(name, paramCount) {} // 스택 포인터에 포인터 변수를 paramCount만큼 반복하여 생성 -> 스택 포인터를 증가
   returnFrom(name) {} // 증가한 스택공간을 비우고 이전 호출 위치로 이동 ex) foo를 호출하면 foo를 name으로
@@ -28,3 +59,5 @@ class Memory {
   garbageCollect() {} // heap 영역에서 할당된 타입중 스택에 포인터 변수가 없는 경우를 해제
   reset() {} // stack, heap 공간을 비우고 init 상태
 }
+
+export default Memory;
