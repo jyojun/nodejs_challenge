@@ -98,17 +98,53 @@ class Memory {
       this.stack[i] = null;
     }
   }
-  usage() {} // 스택 영역 (전체 크기, 사용중인 용량, 남은용량), 힙 영역 (전체크기, 사용 용량, 남은 용량) 배열로 리턴
+  // 스택 영역 (전체 크기, 사용중인 용량, 남은용량), 힙 영역 (전체크기, 사용 용량, 남은 용량) 배열로 리턴
+  usage() {
+    let heapSize = 0;
+
+    // 비어있지 않은 memory heap 갯수를 세어준다.
+    this.memoryHeap.forEach((e) => {
+      if (e !== null) heapSize++;
+    });
+
+    return [
+      `스택 전체: ${this.stack.length} 사용중: ${this.stackPointer} 남은용량: ${
+        this.stack.length - this.stackPointer
+      }`,
+      `힙 전체: ${this.memoryHeap.length} 사용중: ${heapSize} 남은용량: ${
+        this.memoryHeap.length - heapSize
+      }`,
+    ];
+  }
 
   // 스택에 쌓인 호출 스택을 문자열로 리턴
   callstack() {
     return this.callStack;
   }
+
+  // 힙영역에서 사용중인 상태를 문자열 배열로 리턴
   heapdump() {
     return this.memoryHeap;
-  } // 힙영역에서 사용중인 상태를 문자열 배열로 리턴
-  garbageCollect() {} // heap 영역에서 할당된 타입중 스택에 포인터 변수가 없는 경우를 해제
-  reset() {} // stack, heap 공간을 비우고 init 상태
+  }
+
+  // heap 영역에서 할당된 타입중 스택에 포인터 변수가 없는 경우를 해제
+  garbageCollect() {
+    for (let i = 0; i < this.memoryHeap; i++) {
+      if (this.memoryHeap[i] && this.memoryHeap[i].stackPointer === null) {
+        this.heap[i] = null;
+      }
+    }
+  }
+
+  // stack, heap 공간을 비우고 init 상태
+  reset() {
+    this.stack = []; // 힙 주소를 담을 스택 : 힙의 주소를 갖고있다.
+    this.stackPointer = 0; // 현재 가리키는 스택 포인터
+    this.memoryHeap = [];
+    this.heapAddress = 0; // 스택에 저장할 힙 주소
+    this.size = new Map(); // type 별 size를 저장
+    this.callStack = [];
+  }
 }
 
 export default Memory;

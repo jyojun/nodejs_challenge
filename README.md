@@ -60,6 +60,59 @@ class Memory {
   }
 ```
 
+- [x] 힙 메모리 할당 구현 (free)
+-> stack Pointer가 가리키는 memory를 저장하여 heap에서 해당하는 주소에 hmemory를 비워준다. 
+```javascript
+ free(pointer) {
+    // 스택에서 stack pointer가 가르키는 것은 memory 주소 를 저장
+    const result = this.stack[pointer];
+    result.heapAddress = null; // 주소도 null
+    this.memoryHeap[pointer] = null; // 메모리도 비워준다. null
+    return pointer;
+  }
+```
+- [x] 함수 호출을 구현 (call)
+```javascript
+call(name, paramCount) {
+    // 호출한 name을 stack 에 저장.
+    this.stack[this.stackPointer] = { name: name };
+    this.stackPointer++;
+    this.callStack.push({ name: name, address: this.stackPointer });
+
+    // 스택 포인터에 포인터 변수를 paramCount만큼 반복하여 생성하고, 스택 포인터를 증가
+    for (let i = 0; i < paramCount; i++) {
+      this.stack[this.stackPointer] = { type: "pointer", memory: 4 }; // 포인터 메모리 사이즈는 4바이트
+      this.stackPointer++;
+    }
+  }
+```
+- [x] 함수 리턴 구현 (returnFrom)
+-> callStack의 가장 맨뒤값인지 확인하고, 아닐경우 name이 나올때까지 stack을 비우고 stackPointer를 낮춰준다.
+- [x] 스택과 힙 사용 현황 리턴 구현 (usage)
+-> stackPointer와, 비어있지 않은 memoryHeap 갯수로 사용중인 스택과, 힙의 용량을 계산한다.
+- [x] 호출 스택을 구현 (callstack)
+-> callStack 인스턴스를 따로 생성해서 call할 때마다 채우고 returnFrom 할 때마다 가장 먼저 호출한 것을 반환
+- [x] 힙 사용 현황 리턴을 구현 (heapdump)
+-> memory의 현재 memoryHeap을 리턴해준다. 
+- [x] 사용하지 않는 힙 메모리 해제를 구현했다. (garbageCollect)
+-> stackPointer에서 끊긴 것을 찾아서 비워준다.
+
+
+#### 시나리오
+- 메모리를 stack 15, heap 20으로 할당해준다. (init)
+- int 크기지정을 2번한다. -> 2번째 지정에서 err 발생
+- boolean 크기지정을 1로 한다.
+- boolean 타입을 4번 memory heap에서 할당 받는다. (malloc)
+- "foo", "bar", "dap" 함수를 호출한다. (call)
+- dap 함수를 returnFrom 하여 리턴시킨다. (returnFrom)
+- 호출 스택을 보여준다. (callstack)
+- 힙 사용상태를 살펴본다. (heapdump)
+- 스택과 힙 사용 현황을 본다. (usage)
+- 사용하지 않는 힙 메모리를 해제한다. (garbageCollect)
+- 메모리 전체를 초기화한다. (reset)
+  
+#### 실행 결과
+
 ## 학습 메모
 
 # Day 4 학습 메모
@@ -115,3 +168,11 @@ console.log(c);	// {id: 'yoy', pw: 1234, gender: 'F'}
 ### 메모리 leak(메모리 누수)
 
 메모리 힙은 콜스택 영역보다 훨씬 더 큰 공간을 갖고 있지만, 그 영역이 무한한 것은 아니다. 메모리 힙이 프로그램의 오류나 메모리 관리가 제대로 되지 않았을 경우 수동으로 메모리 해제가 되지 않아 힙영역의 메모리 공간의 범위를 넘어설 경우, 그것을 메모리 누수라고 한다. → 과거에 사용했지만 해제하고 반환 되지 않은 데이터들이 메모리 힙에 계속 차지하고 있는 현상
+
+### malloc 동작 방식
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191842dc-7ff5-4ee3-9afd-6a277c6dad70/Untitled.png)
+
+-stack 은 일시적 메모리이며 함수가 끝나면 다시 반환을 해준다. 위 함수에서 p가 가리키는 것은 heap의 메모리 주소이며 free(p)를 해주면, p 주소에 위치한 메모리가 반환된다. 
+
+[The Difference Between Stack and Heap Based Memory](https://danielmiessler.com/study/difference-stack-heap-based-memory/)

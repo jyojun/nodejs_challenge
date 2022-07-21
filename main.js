@@ -2,10 +2,10 @@ import Memory from "./memory.js";
 
 const memory = new Memory();
 
-console.log(memory.init(14, 15));
+console.log(memory.init(15, 20));
 
 memory.setSize("int", 8);
-memory.setSize("int", 4); // 이미 등록한 type은
+memory.setSize("int", 4); // 이미 등록한 type은 재지정이 안함
 memory.setSize("boolean", 1);
 
 console.log(memory.size);
@@ -22,3 +22,13 @@ memory.call("dap", 3);
 memory.returnFrom("dap");
 
 console.log(memory.callstack());
+console.log(memory.heapdump());
+console.log(memory.usage());
+
+memory.garbageCollect();
+
+console.log(memory.heapdump());
+
+memory.reset();
+
+console.log(memory.heapdump());
