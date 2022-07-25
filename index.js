@@ -1,4 +1,4 @@
-const str = `<!DOCTYPE html><HTML lang="ko"><BODY><P>BOOST<IMG SRC=\"codesquad.kr\"></IMG><BR/></P></BODY></HTML>
+const str = `<!DOCTYPE html><HTML lang="ko"><BODY><P>BOOST<IMG SRC=\"codesquad.kr\"><P>hello</P></IMG><BR/></P></BODY></HTML>
 `;
 
 // 토큰화 하기 (tag open, tag close, attribute_name, operator, value)
@@ -230,6 +230,21 @@ function elementByAttribute(obj, name, value) {
   }
 }
 
+function elementByTag(obj, tag) {
+  if (obj["element"]) {
+    if (obj.element === tag) {
+      tag_result.push(obj);
+    }
+  }
+  if (obj["children"]) {
+    for (let i = 0; i < obj.children.length; i++) {
+      let new_obj = obj.children[i];
+      elementByTag(new_obj, tag);
+    }
+  }
+  return tag_result;
+}
+
 tokens = tokenizer(str);
 lexArr = lexer(tokens);
 
@@ -253,7 +268,12 @@ console.dir(result, { depth: null });
 
 // elementByAttribute;
 
-console.log(`elementByAttribute(obj, "lang", "ko")`);
+console.log(`elementByAttribute(result, "lang", "ko")`);
 console.log(elementByAttribute(result, "lang", "ko"));
-console.log(`elementByAttribute(obj, "SRC", "codesquad.kr")`);
+console.log(`elementByAttribute(result, "SRC", "codesquad.kr")`);
 console.log(elementByAttribute(result, "SRC", "codesquad.kr"));
+
+// elementByTag;
+let tag_result = [];
+console.log(`elementByTag(result, "P")`);
+console.log(elementByTag(result, "P"));

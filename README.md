@@ -51,6 +51,9 @@
 
 ![image](https://user-images.githubusercontent.com/64758931/180823995-77a26f7a-420b-47e5-9aa1-d2484f211df6.png)
 
+- [x] elementByTag 생성
+1. elementByAttribute와 동일한 알고리즘이지만, 먼저 전역변수로 빈 array를 생성하고, tag name과 일치 한다면, 해당 obj를 array에 push해준다.
+
 
 ## 학습 메모
 #### tokenizer
