@@ -19,7 +19,63 @@
   7. oeprator 후라면 "attribute_value"
   8. 나머지는 text로 처리한다. 
 
-- [ ] praser 생성
+- [x] praser 생성
+  1. tag_start일 경우 key값 element, attributes, children, text 를 담고있는 object 생성후 stack에 push 한다.
+  2. attributes name, attributes value가 나올경우 stack의 top attributes 배열에 정보를 push해준다. 
+  3. end_tag_start("/>")일 경우 stack에 pop을 한 정보를 갖고, 스택에 정보가 있다면, 그 노드의 children 배열에 push를 하고, 빈 값일 경우 result 결과 값에 저장을 해준다.  
 ## 학습 메모
 #### tokenizer
   - 어떤 대상의 의미있는 요소들을 토큰으로 쪼개는 역할 -> 토큰은 "어휘 분석의 단위"를 뜻하며, 이 단위는 보통 "의미있는 단위"로 정한다.
+#### lexer 
+  - Tokenizer에 의해 쪼갠 토큰들에게 의미를 분석하고 부여한다.
+
+#### Lexical Analysis
+  - 위 Tokenizer + Lexer의 두 가지 역할을 합한 것이 어휘분석(Lexical Analysis)라고 한다. 
+
+
+#### Parser 
+  - 어휘 분석을 마친 데이터들을 구조적으로 표현한다. 구조적으로 바꾸면서, 데이터가 올바른지 검토하는 메소드도 수행한다.(이번 과제의 stringify())
+  - Parser에 의해 도축된 결과가 아래 예시와 같이 AST의 모습을 보인다.
+```
+
+// array parser 예시 
+입력값 : [1, [2,[3]], "he is tall"]
+
+
+토크나이저 결과 
+
+[ "1", "[2,[3]]", "['he', 'is', 'tall']"]
+
+렉서 결과 
+
+[
+	{type: 'number', value:"1" },
+	{type: 'array', value: "[2, [3]]"},
+	{type: 'array', value: "['he', 'is', 'tall']"},
+]
+
+파서 결과  
+
+{
+	type: 'array',
+	child: [
+		{type: 'number', value:'1', child:[] },
+		{type: 'array', 
+			child: [
+			{ type: 'number', value: '2', child:[] },
+			{ type: 'array', 
+				child:[ {type:'number', value:'3', child:[]}
+			]
+		}]
+		},
+		{type: 'array', 
+			child:[
+			{ type: 'string', value: 'he', child:[] },
+			{ type: 'string', value: 'is', child:[] },
+			{ type: 'string', value: 'tall', child:[] },
+			]
+		}]
+}
+```
+
+link: https://gobae.tistory.com/94

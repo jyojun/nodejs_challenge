@@ -1,11 +1,13 @@
-const str =
-  '<!DOCTYPE html><HTML lang="ko"><BODY><P>BOOST<IMG SRC="codesquad.kr"></IMG><BR/></P></BODY></HTML>';
+const str = `<!DOCTYPE html><HTML lang="ko"><BODY><P>BOOST<IMG SRC=\"codesquad.kr\"></IMG><BR/></P></BODY></HTML>
+`;
 
 // 토큰화 하기 (tag open, tag close, attribute_name, operator, value)
 function tokenizer(str) {
   const result = [];
   let temp = "";
   let tag_inside = false;
+  let text_inside = false;
+  let attribute_value_start = true;
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "<") {
       if (temp !== "") {
@@ -15,6 +17,7 @@ function tokenizer(str) {
       }
       temp += str[i];
       tag_inside = true;
+      text_insde = false;
     } else if (str[i] === ">") {
       if (temp[0] !== "<") {
         result.push(temp);
@@ -24,6 +27,7 @@ function tokenizer(str) {
       result.push(temp);
       temp = "";
       tag_inside = false;
+      attribute_value_start = false;
     } else if (tag_inside && str[i] === " ") {
       // 태그안에 빈칸이 있는경우 나누어준다.
       if (temp !== "") {
@@ -35,8 +39,17 @@ function tokenizer(str) {
       result.push(temp);
       result.push(str[i]);
       temp = "";
-    } else {
+      attribute_value_start = true;
+    } else if (str[i] === "\n") {
+      continue;
+    } else if (!text_inside && !tag_inside && str[i] === " ") {
+      continue;
+    } else if (attribute_value_start === true) {
       temp += str[i];
+    } else {
+      // text area
+      temp += str[i];
+      text_inside = true;
     }
   }
   return result;
@@ -48,7 +61,7 @@ function lexer(arr) {
   let tag_in = false;
   let before_operator = true;
   for (c of arr) {
-    if (c.includes("!")) {
+    if (c.includes("!") || c.includes("?")) {
       // 주석은 제외
       comment_in = true;
       continue;
@@ -94,12 +107,86 @@ function lexer(arr) {
   }
   return lexArr;
 }
+class Stack {
+  constructor() {
+    this.stack = [];
+  }
+  push(element) {
+    this.stack.push(element);
+  }
+  pop() {
+    this.stack.pop();
+  }
+  top() {
+    return this.stack[this.stack.length - 1];
+  }
+}
+
+stack = new Stack();
+function parser(arr) {
+  let result = {};
+  let attribute_name = "";
+  let attribute_value = "";
+  let tag_in = false;
+  for (c of arr) {
+    if (c[0] === "tag_start") {
+      if (c[1].includes(">") === false) {
+        tag_in = true;
+      }
+      stack.push({
+        element: c[1].replace("<", "").replace(">", ""),
+        text: "",
+        attributes: [],
+        children: [],
+      });
+    } else if (tag_in === true && c[0] === "attribute_name") {
+      attribute_name = c[1];
+    } else if (tag_in === true && c[0] === "attribute_value") {
+      attribute_value = c[1];
+      stack.top()["attributes"].push({
+        name: attribute_name,
+        value: attribute_value,
+      });
+      attribute_name = "";
+      attribute_value = "";
+    } else if (c[0] === "tag_end") {
+      tag_in = false;
+    } else if (c[0] === "end_tag_start") {
+      //   console.log(stack.stack);
+      let temp = stack.top();
+      stack.pop();
+
+      // 비어있는 값은 key 제거
+      if (temp["attributes"].length === 0) delete temp["attributes"];
+      if (temp["text"] === "") delete temp["text"];
+      if (temp["children"].length === 0) delete temp["children"];
+      if (stack.stack.length === 0) {
+        result = temp;
+      } else {
+        stack.top()["children"].push(temp);
+      }
+    } else if (c[0] === "start_with_end") {
+      stack.top()["children"].push({
+        element: c[1].replace("/>", "").replace("<", ""),
+      });
+    } else if (c[0] === "text") {
+      stack.top()["text"] = c[1];
+    }
+  }
+  return result;
+}
 
 tokens = tokenizer(str);
+lexArr = lexer(tokens);
 
 console.log("--------------tokens-------------");
 console.log(tokens);
 console.log("---------------------------------");
 
 console.log("lexer start: ");
-console.log(lexer(tokens));
+console.log(lexArr);
+
+console.log("parser start");
+let result = parser(lexArr);
+
+console.dir(result, { depth: null });
