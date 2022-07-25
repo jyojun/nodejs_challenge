@@ -42,6 +42,9 @@
 #### 실행결과 
 ![스크린샷 2022-07-25 오후 10 28 52](https://user-images.githubusercontent.com/64758931/180790963-c81ba16f-f949-4368-af7a-37289fb0dd1f.png)
 
+![image](https://user-images.githubusercontent.com/64758931/180818520-53d42b9c-8375-4dd4-8a0d-90bbb0b640bd.png)
+
+
 ## 학습 메모
 #### tokenizer
   - 어떤 대상의 의미있는 요소들을 토큰으로 쪼개는 역할 -> 토큰은 "어휘 분석의 단위"를 뜻하며, 이 단위는 보통 "의미있는 단위"로 정한다.
