@@ -8,7 +8,11 @@
   2. ">"를 만나면 tag를 닫음
       - 저장하고 있는 temp값애 "<"이 포함하면 같이 저장, 아니면 따로 저장(attribute의 value와 ">"을 토큰으로 구분)  
   3. "="이 나오면 앞에 temp에 포함되어 있는 attribute_name을 먼저 push 하고, "="를 push 한다. 
-  3. 나머지 경우 그냥 temp 문자열을 계속 저장. 
+  4. 나머지 경우 그냥 temp 문자열을 계속 저장. 
+  
+  
+![image](https://user-images.githubusercontent.com/64758931/180793317-448457d4-f732-4010-8ed1-57f8d266b1f1.png)
+
 - [x] lexer 생성
   1. "<", "/> 을 모두 포함하면 start_with_end로 저장.
   2. "</" 으로 시작하면 end_tag_start (태그를 닫기)
@@ -18,6 +22,9 @@
   6. operator 전이라면 "attribute_name"
   7. oeprator 후라면 "attribute_value"
   8. 나머지는 text로 처리한다. 
+
+![image](https://user-images.githubusercontent.com/64758931/180793473-af98823a-a545-4a8e-8b3c-590042bcc003.png)
+
 
 - [x] praser 생성
   1. tag_start일 경우 key값 element, attributes, children, text 를 담고있는 object 생성후 stack에 push 한다.
