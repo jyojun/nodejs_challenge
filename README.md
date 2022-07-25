@@ -49,6 +49,8 @@
   1. parsing한 obj를 parameter로 받아, attributes key로 접근하여 name, value가 있으면 그 obj를 리턴
   2. 없다면, children key로 접근하여 children의 element들을 elementByAttribu†e함수의 파라미터로 받아 리턴한다.
 
+![image](https://user-images.githubusercontent.com/64758931/180823995-77a26f7a-420b-47e5-9aa1-d2484f211df6.png)
+
 
 ## 학습 메모
 #### tokenizer
