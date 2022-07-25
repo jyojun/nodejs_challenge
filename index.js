@@ -42,57 +42,5 @@ function tokenizer(str) {
   return result;
 }
 
-function lexer(tokenArray) {
-  const lexerArray = [];
-
-  let bool_Comment = false;
-  let bool_Tag = false;
-  let bool_Element = false;
-  let bool_Value = false;
-
-  for (let token of tokenArray) {
-    if (token[1] == "!") {
-      bool_Comment = true;
-      continue;
-    } else if (bool_Comment) {
-      if (token.includes(">")) {
-        bool_Comment = false;
-        continue;
-      } else {
-        continue;
-      }
-    } else if (token.includes("/>") || token.includes("</")) {
-      lexerArray.push({ type: "tag_end", value: token });
-      bool_Tag = false;
-    } else if (token.includes("<") && token.includes(">")) {
-      lexerArray.push({ type: "tag_start", value: token });
-      bool_Tag = true;
-    } else if (token.includes("<")) {
-      lexerArray.push({ type: "tag_start", value: token });
-      bool_Tag = true;
-      bool_Element = true;
-    } else if (token.includes(">") && bool_Element) {
-      lexerArray.push({ type: "tag_end", value: token });
-      bool_Element = false;
-    } else if (token === "=" && bool_Element) {
-      bool_Value = true;
-      lexerArray.push({ type: "Operator", value: token });
-    } else if (bool_Tag && bool_Element) {
-      if (bool_Value === false) {
-        lexerArray.push({ type: "Attribute", value: token });
-      } else {
-        lexerArray.push({ type: "Value", value: token });
-        bool_Value = false;
-      }
-    } else {
-      lexerArray.push({ type: "Text", value: token });
-    }
-  }
-  return lexerArray;
-}
-
 tokens = tokenizer(str);
 console.log(tokens);
-
-lexArr = lexer(tokens);
-console.log(lexArr);
