@@ -52,12 +52,17 @@
 ![image](https://user-images.githubusercontent.com/64758931/180823995-77a26f7a-420b-47e5-9aa1-d2484f211df6.png)
 
 - [x] elementByTag 생성
-1. elementByAttribute와 동일한 알고리즘이지만, 먼저 전역변수로 빈 array를 생성하고, tag name과 일치 한다면, 해당 obj를 array에 push해준다.
+  1. elementByAttribute와 동일한 알고리즘이지만, 먼저 전역변수로 빈 array를 생성하고, tag name과 일치 한다면, 해당 obj를 array에 push해준다.
 
 ![image](https://user-images.githubusercontent.com/64758931/180830648-f780d7f0-a03f-4b01-a295-afdc4aeb37b1.png)
+-> 예시의 img 태그 안에 p 태그를 하나 더 추가하여, 2개가 push 되도록 하였다.
 
-
-
+- [x] findXPath 생성
+  1. 정규표현식과, split으로 path 경로를 array에 저장.
+  2. path 길이가 1이 될 때 까지 slice로 앞부분을 자르며 경로에 맞게 탐색
+  3. 마지막 path에서 태그 명과 일치하는 element를 result에 모두 저장
+  4. result[인덱스-1] 을 리턴한다. 
+  5. 인덱스-1 만큼의 번호가 없을 때, 경로를 탐색할 때 해당 태그명이 없을 경우 에러를 출력
 ## 학습 메모
 #### tokenizer
   - 어떤 대상의 의미있는 요소들을 토큰으로 쪼개는 역할 -> 토큰은 "어휘 분석의 단위"를 뜻하며, 이 단위는 보통 "의미있는 단위"로 정한다.

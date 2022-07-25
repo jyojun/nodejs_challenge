@@ -245,6 +245,51 @@ function elementByTag(obj, tag) {
   return tag_result;
 }
 
+function findXPath(obj, path) {
+  let result = [];
+  let p = path.split("/").slice(1);
+  let num = p[p.length - 1]
+    .replace(/[a-zA-Z]/, "")
+    .replace("[", "")
+    .replace("]", "");
+
+  num = parseInt(num);
+  if (!num) {
+    num = 1;
+  }
+  p[p.length - 1] = p[p.length - 1].split("[")[0];
+
+  let temp = obj;
+
+  if (p.length === 1) {
+    if (p[0] !== temp.element) {
+      throw Error("찾으려는 경로가 없습니다.");
+    }
+    return temp;
+  } else {
+    p = p.slice(1);
+    while (p.length > 1) {
+      for (i of temp.children) {
+        if (i.element === p[0]) {
+          p = p.slice(1);
+          temp = i;
+        }
+      }
+    }
+
+    for (i of temp.children) {
+      if (i.element === p[0]) result.push(i);
+    }
+  }
+
+  if (result.length === 0) {
+    throw Error("찾으려는 경로가 없습니다.");
+  } else if (num - 1 > result.length) {
+    throw Error("찾으려는 경로가 없습니다.");
+  }
+  return result[num - 1];
+}
+
 tokens = tokenizer(str);
 lexArr = lexer(tokens);
 
@@ -266,14 +311,21 @@ console.dir(result, { depth: null });
 // tokens2 = tokenizer(str2);
 // stringify(tokens2);
 
-// elementByAttribute;
+// elementByAttribute
 
 console.log(`elementByAttribute(result, "lang", "ko")`);
 console.log(elementByAttribute(result, "lang", "ko"));
 console.log(`elementByAttribute(result, "SRC", "codesquad.kr")`);
 console.log(elementByAttribute(result, "SRC", "codesquad.kr"));
 
-// elementByTag;
+// elementByTag
 let tag_result = [];
 console.log(`elementByTag(result, "P")`);
 console.log(elementByTag(result, "P"));
+
+// findXPath
+console.log(`findXPath(result, "/HTML/BODY/P[1]")`);
+console.log(findXPath(result, "/HTML/BODY/P[1]"));
+
+console.log(`findXPath(result, "/HTML/BODY/P[3]")`);
+console.log(findXPath(result, "/HTML/BODY/P[3]"));
