@@ -9,7 +9,16 @@
       - 저장하고 있는 temp값애 "<"이 포함하면 같이 저장, 아니면 따로 저장(attribute의 value와 ">"을 토큰으로 구분)  
   3. "="이 나오면 앞에 temp에 포함되어 있는 attribute_name을 먼저 push 하고, "="를 push 한다. 
   3. 나머지 경우 그냥 temp 문자열을 계속 저장. 
-- [ ] lexer 생성
+- [x] lexer 생성
+  1. "<", "/> 을 모두 포함하면 start_with_end로 저장.
+  2. "</" 으로 시작하면 end_tag_start (태그를 닫기)
+  3. "<" 로 시작하면 tag_start
+  4. ">" 만 있다면 tag_end
+  5. "=" 은 operator
+  6. operator 전이라면 "attribute_name"
+  7. oeprator 후라면 "attribute_value"
+  8. 나머지는 text로 처리한다. 
+
 - [ ] praser 생성
 ## 학습 메모
 #### tokenizer
