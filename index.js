@@ -143,7 +143,7 @@ function parser(arr) {
     } else if (tag_in === true && c[0] === "attribute_name") {
       attribute_name = c[1];
     } else if (tag_in === true && c[0] === "attribute_value") {
-      attribute_value = c[1];
+      attribute_value = c[1].replace('"', "").replace('"', "");
       stack.top()["attributes"].push({
         name: attribute_name,
         value: attribute_value,
@@ -211,6 +211,25 @@ function stringify(arr) {
   }
 }
 
+function elementByAttribute(obj, name, value) {
+  if (obj["attributes"]) {
+    for (let i = 0; i < obj.attributes.length; i++) {
+      if (
+        obj.attributes[i].name === name &&
+        obj.attributes[i].value === value
+      ) {
+        return obj;
+      }
+    }
+  }
+  if (obj["children"]) {
+    for (let i = 0; i < obj.children.length; i++) {
+      let new_obj = obj.children[i];
+      return elementByAttribute(new_obj, name, value);
+    }
+  }
+}
+
 tokens = tokenizer(str);
 lexArr = lexer(tokens);
 
@@ -226,7 +245,15 @@ let result = parser(lexArr);
 
 console.dir(result, { depth: null });
 
-const str2 = `<!DOCTYPE html><HTML lang="ko"><BODY></HTML></BODY>`;
+// XML 잘못된 형식
+// const str2 = `<!DOCTYPE html><HTML lang="ko"><BODY></HTML></BODY>`;
 
-tokens2 = tokenizer(str2);
-stringify(tokens2);
+// tokens2 = tokenizer(str2);
+// stringify(tokens2);
+
+// elementByAttribute;
+
+console.log(`elementByAttribute(obj, "lang", "ko")`);
+console.log(elementByAttribute(result, "lang", "ko"));
+console.log(`elementByAttribute(obj, "SRC", "codesquad.kr")`);
+console.log(elementByAttribute(result, "SRC", "codesquad.kr"));

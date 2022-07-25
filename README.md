@@ -45,6 +45,11 @@
 ![image](https://user-images.githubusercontent.com/64758931/180818520-53d42b9c-8375-4dd4-8a0d-90bbb0b640bd.png)
 
 
+- [x] elementByAttribute 생성 
+  1. parsing한 obj를 parameter로 받아, attributes key로 접근하여 name, value가 있으면 그 obj를 리턴
+  2. 없다면, children key로 접근하여 children의 element들을 elementByAttribu†e함수의 파라미터로 받아 리턴한다.
+
+
 ## 학습 메모
 #### tokenizer
   - 어떤 대상의 의미있는 요소들을 토큰으로 쪼개는 역할 -> 토큰은 "어휘 분석의 단위"를 뜻하며, 이 단위는 보통 "의미있는 단위"로 정한다.
