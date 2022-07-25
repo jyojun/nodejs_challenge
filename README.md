@@ -31,6 +31,14 @@
   2. attributes name, attributes value가 나올경우 stack의 top attributes 배열에 정보를 push해준다. 
   3. end_tag_start("/>")일 경우 stack에 pop을 한 정보를 갖고, 스택에 정보가 있다면, 그 노드의 children 배열에 push를 하고, 빈 값일 경우 result 결과 값에 저장을 해준다.  
 
+- [x] stringify 생성
+  1. 주석은 생략
+  2. "<"로 시작하는 토큰들(tag_start, tag_end)만 살펴본다.
+  3. 한 토큰이 끝에 <로 시작해서 /> 로 끝나면 그냥 넘어간다.
+  4. / 를 포함하지 않으면 스택에 push
+  5. / 를 포함하는데 stack의 top과 현재 Token 이름과 같다면 넘어가고 아니면 Error 출력
+  6. / 를 포함하는데 stack이 비어있다면 Error 출력 
+
 #### 실행결과 
 ![스크린샷 2022-07-25 오후 10 28 52](https://user-images.githubusercontent.com/64758931/180790963-c81ba16f-f949-4368-af7a-37289fb0dd1f.png)
 

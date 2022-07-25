@@ -123,6 +123,7 @@ class Stack {
 }
 
 stack = new Stack();
+
 function parser(arr) {
   let result = {};
   let attribute_name = "";
@@ -176,6 +177,40 @@ function parser(arr) {
   return result;
 }
 
+function stringify(arr) {
+  let stack = new Stack();
+
+  for (t of arr) {
+    if (t.includes("!")) {
+      continue;
+    }
+
+    // < 으로 시작하고, / 으로 끝나면 continue
+    if (t.includes("<")) {
+      if (t[t.length - 2] == "/") continue;
+      // ex <br/>, <img />
+      else {
+        // < 로 시작하기만 하면,
+        if (stack.length !== 0) {
+          let temp = stack.top().replace("<", "").replace(">", "");
+          if (temp == t.replace("</", "").replace(">", "")) {
+            // 방금 넣은 태그와 같은 태그일 경우 pop
+            stack.pop();
+          } else {
+            // 아닐 경우 잘못된 형식
+            throw Error("올바른 XML 형식이 아닙니다.");
+          }
+        } else {
+          throw Error("올바른 XML 형식이 아닙니다.");
+        }
+      }
+    } else {
+      // 아닐경우 push
+      stack.push(t);
+    }
+  }
+}
+
 tokens = tokenizer(str);
 lexArr = lexer(tokens);
 
@@ -190,3 +225,8 @@ console.log("parser start");
 let result = parser(lexArr);
 
 console.dir(result, { depth: null });
+
+const str2 = `<!DOCTYPE html><HTML lang="ko"><BODY></HTML></BODY>`;
+
+tokens2 = tokenizer(str2);
+stringify(tokens2);
