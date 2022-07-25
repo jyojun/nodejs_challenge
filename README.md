@@ -23,6 +23,10 @@
   1. tag_start일 경우 key값 element, attributes, children, text 를 담고있는 object 생성후 stack에 push 한다.
   2. attributes name, attributes value가 나올경우 stack의 top attributes 배열에 정보를 push해준다. 
   3. end_tag_start("/>")일 경우 stack에 pop을 한 정보를 갖고, 스택에 정보가 있다면, 그 노드의 children 배열에 push를 하고, 빈 값일 경우 result 결과 값에 저장을 해준다.  
+
+#### 실행결과 
+![스크린샷 2022-07-25 오후 10 28 52](https://user-images.githubusercontent.com/64758931/180790963-c81ba16f-f949-4368-af7a-37289fb0dd1f.png)
+
 ## 학습 메모
 #### tokenizer
   - 어떤 대상의 의미있는 요소들을 토큰으로 쪼개는 역할 -> 토큰은 "어휘 분석의 단위"를 뜻하며, 이 단위는 보통 "의미있는 단위"로 정한다.
