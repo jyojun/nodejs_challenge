@@ -112,6 +112,11 @@ board.display();
 ![image](https://user-images.githubusercontent.com/64758931/181077550-583d93e1-f745-4bee-8279-1e8e1a5d36be.png)
 
 
+- 예제 실행결과
+
+![image](https://user-images.githubusercontent.com/64758931/181081858-20d64763-4892-4f02-b328-9da6e0c3c55e.png)
+
+
 ## 학습 메모
 
 - 유니코드 출력
