@@ -12,19 +12,21 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.setPrompt("명령을 입력하세요> ");
+rl.setPrompt("명령을 입력하세요 (종료 : 공백입력)> ");
 rl.prompt(); // 입력 받기.
 rl.on("line", (line) => {
-  if (line.match(/[?][A-H][1-8]/)) {
+  if (line.match(/[?][A-Z][0-9]/)) {
+    // ?A2 형태
     board.possible_move(line.slice(1));
-  } else if (line.match(/[A-H][1-8]->[A-H][1-8]/)) {
-    // console.log(line);
-    board.move(line.substr(0, 2), line.substr(4, 6));
+  } else if (line.match(/[A-Z][0-9]->[A-Z][0-9]/)) {
+    // A6->A7 형태
+    board.move(line[0] + line[1], line[4] + line[5]);
     board.display();
-  } else if (line == "exit") {
+  } else if (line === "") {
     rl.close();
+    return;
   } else {
-    console.log("잘못된 형식입니다.");
+    console.log("ex) ?A2 또는 A7->A6 와 같은 형식으로 입력해주세요.");
   }
   rl.prompt();
 });
