@@ -70,6 +70,8 @@
   console.log(queen.possiblePosition());
   console.log(queen2.possiblePosition());
     ```
+    ![image](https://user-images.githubusercontent.com/64758931/180998006-4e0017f7-554e-4db4-b54d-9ee949b96120.png)
+
 ## 학습 메모
 
 - 유니코드 출력
