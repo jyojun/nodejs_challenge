@@ -59,6 +59,8 @@
     console.log(rook.possiblePosition());
     console.log(rook2.possiblePosition());
     ```
+    ![image](https://user-images.githubusercontent.com/64758931/180995495-48afabd6-31e3-47d2-b8f8-c3052418fc9d.png)
+
 ## 학습 메모
 
 - 유니코드 출력
