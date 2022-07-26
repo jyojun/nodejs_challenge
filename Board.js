@@ -86,6 +86,7 @@ class Board {
       console.log(row);
     }
     console.log("  A B C D E F G H\t");
+    this.score();
     console.log("\n");
     if (this.turn === "black") {
       console.log("블랙 체스말의 차례입니다.\n");
