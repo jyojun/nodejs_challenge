@@ -1,10 +1,23 @@
 # Day7
 
 ## 체크포인트
-- [ ] Board class 생성
+- [x] Board class 생성
     1. 체스판 출력 - display()
-    2. enum (file, rank) 사용 -> A8(1번째 열 8번쨰 column)
+    2. enum (file, rank) 사용 -> A8(8번째 열 1번쨰 column)
 
+- [x] Pawn class 생성
+    1. 객체로 생성할 때, (type, position, color)를 파라미터로 받음
+    2. possiblePosition()
+       1. white일 때 rank를 1줄임(올라가기)
+       2. black일 때 rank를 1늘림(내려가기) 
+    3. 실행 결과
+    ```javascript
+    const pawn = new Pawn("pawn", "A2", "black");
+    const pawn2 = new Pawn("pawn", "F7", "white");
+
+    console.log(pawn.possiblePosition());
+    console.log(pawn2.possiblePosition());
+    ```
 ## 학습 메모
 
 - 유니코드 출력
