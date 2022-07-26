@@ -48,6 +48,17 @@
     ``` 
     ![스크린샷 2022-07-26 오후 7 26 37](https://user-images.githubusercontent.com/64758931/180984963-7295255b-4b82-45f9-a30e-b011947f6543.png)
 
+- [x] Rook class 생성
+  1.  possiblePosition()
+      1.  row, col 값만 변경시켜주어 체스판 바깥쪽으로 나가지 않으면 result에 push
+  2.  실행 결과
+    ```javascript
+    const rook = new Rook("rook", "A1", "black");
+    const rook2 = new Rook("rook", "H8", "white");
+
+    console.log(rook.possiblePosition());
+    console.log(rook2.possiblePosition());
+    ```
 ## 학습 메모
 
 - 유니코드 출력
