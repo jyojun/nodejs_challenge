@@ -6,37 +6,45 @@ class Knight extends Piece {
     let col = this.position.col;
     let result = [];
 
-    // 8가지
+    // 8가지 전진방향, 도착방향 동시에 저장
     let steps = [
       {
+        front: { row: row + 1, col: col },
         row: row + 2,
         col: col + 1,
       },
       {
+        front: { row: row, col: col + 1 },
         row: row + 1,
         col: col + 2,
       },
       {
+        front: { row: row, col: col + 1 },
         row: row - 1,
         col: col + 2,
       },
       {
+        front: { row: row - 1, col: col },
         row: row - 2,
         col: col + 1,
       },
       {
+        front: { row: row, col: col - 1 },
         row: row - 1,
         col: col - 2,
       },
       {
+        front: { row: row - 1, col: col },
         row: row - 2,
         col: col - 1,
       },
       {
+        front: { row: row, col: col - 1 },
         row: row + 1,
         col: col - 2,
       },
       {
+        front: { row: row + 1, col: col },
         row: row + 2,
         col: col - 1,
       },
@@ -49,7 +57,10 @@ class Knight extends Piece {
         steps[i].col >= 0 &&
         steps[i].col < 8
       ) {
-        result.push(file[String(steps[i].col)] + String(steps[i].row + 1));
+        result.push([
+          file[String(steps[i].front.col)] + String(steps[i].front.row + 1),
+          file[String(steps[i].col)] + String(steps[i].row + 1),
+        ]);
       }
     }
     return result;

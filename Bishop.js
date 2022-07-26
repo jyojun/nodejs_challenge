@@ -6,17 +6,27 @@ class Bishop extends Piece {
   possiblePosition() {
     let row = this.position.row;
     let col = this.position.col;
+
+    // 대각선 4방향
+    let dir1 = [];
+    let dir2 = [];
+    let dir3 = [];
+    let dir4 = [];
     let result = [];
     for (let i = 1; i < 8; i++) {
       if (in_range(row + i, col + i))
-        result.push(file[String(col + i)] + String(row + i + 1));
+        dir1.push(file[String(col + i)] + String(row + i + 1));
       if (in_range(row + i, col - i))
-        result.push(file[String(col - i)] + String(row + i + 1));
+        dir2.push(file[String(col - i)] + String(row + i + 1));
       if (in_range(row - i, col - i))
-        result.push(file[String(col - i)] + String(row - i + 1));
+        dir3.push(file[String(col - i)] + String(row - i + 1));
       if (in_range(row - i, col + i))
-        result.push(file[String(col + i)] + String(row - i + 1));
+        dir4.push(file[String(col + i)] + String(row - i + 1));
     }
+    result.push(dir1);
+    result.push(dir2);
+    result.push(dir3);
+    result.push(dir4);
     return result;
   }
 }
