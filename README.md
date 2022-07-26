@@ -32,7 +32,7 @@
   console.log(knight.possiblePosition());
   console.log(knight2.possiblePosition());
   ```
-  ![image](https://user-images.githubusercontent.com/64758931/180969662-24af7bc7-0cb9-4997-b367-62c4e32552f5.png)
+  ![image](https://user-images.githubusercontent.com/64758931/181076410-a2a34647-2b95-4600-ae34-2ed6aa0a2449.png)
 
 - [x] Bishop class 생성
   -  possiblePosition()
@@ -46,7 +46,7 @@
     console.log(bishop2.possiblePosition());
 
     ``` 
-    ![스크린샷 2022-07-26 오후 7 26 37](https://user-images.githubusercontent.com/64758931/180984963-7295255b-4b82-45f9-a30e-b011947f6543.png)
+    ![image](https://user-images.githubusercontent.com/64758931/181076556-9ab8b8ad-da7c-46c8-a37b-bcce1f46d2e7.png)
 
 - [x] Rook class 생성
   -  possiblePosition()
@@ -59,7 +59,7 @@
     console.log(rook.possiblePosition());
     console.log(rook2.possiblePosition());
     ```
-    ![image](https://user-images.githubusercontent.com/64758931/180995495-48afabd6-31e3-47d2-b8f8-c3052418fc9d.png)
+    ![image](https://user-images.githubusercontent.com/64758931/181076711-ea6c5111-8b02-4a80-88f5-272ca7564250.png)
 - [x] Queen class 생성
   -  possiblePosition() -> Rook + Bishop 합침. 
   -  실행 결과
@@ -70,8 +70,7 @@
   console.log(queen.possiblePosition());
   console.log(queen2.possiblePosition());
     ```
-    ![image](https://user-images.githubusercontent.com/64758931/180998006-4e0017f7-554e-4db4-b54d-9ee949b96120.png)
-
+    ![image](https://user-images.githubusercontent.com/64758931/181076853-7daadc55-b134-4e6d-88d4-c384bb9c528f.png)
 - [x] initPiece() 메소드 생성
   - 타입별로 검은말, 하얀말이 올 수 있는 위치인지 확인 한다.
   - 확인 후, board에 각 객체를 저장한다. 
@@ -106,6 +105,12 @@ board.display();
 board.move("C8", "A6");
 board.display();
 ```
+![image](https://user-images.githubusercontent.com/64758931/181075965-aaa46d01-3604-4882-93ac-5e8a5643051b.png)
+
+- A7->A6, A2->A3, B8->C6(나이트 앞쪽이 막혀있어서 이동할 수 없음.) 
+
+![image](https://user-images.githubusercontent.com/64758931/181077550-583d93e1-f745-4bee-8279-1e8e1a5d36be.png)
+
 
 ## 학습 메모
 
