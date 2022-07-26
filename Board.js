@@ -239,6 +239,18 @@ class Board {
     this.board[row][col] = p;
   }
   setPiece(type, position) {}
+  possible_move(from) {
+    let from_pos = { row: rank[from[1]], col: file[from[0]] };
+    let p = this.board[from_pos.row][from_pos.col];
+
+    if (p.color !== this.turn) {
+      console.log(p.color, "의 차례가 아닙니다.");
+      return;
+    }
+    let temp = move_possible(this.board, p.color, p.type, p.possiblePosition());
+
+    console.log(temp.join(" "));
+  }
   move(from, to) {
     let from_pos = { row: rank[from[1]], col: file[from[0]] };
     let to_pos = { row: rank[to[1]], col: file[to[0]] };
@@ -293,21 +305,4 @@ class Board {
   }
 }
 
-const board = new Board();
-
-board.init();
-
-board.move("B7", "B6");
-board.display();
-
-board.move("A2", "A3");
-board.display();
-
-board.move("B8", "C6");
-board.display();
-
-board.move("A1", "A2");
-board.display();
-
-board.move("C8", "A6");
-board.display();
+export default Board;
