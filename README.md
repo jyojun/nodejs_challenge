@@ -114,7 +114,7 @@ board.display();
 
 - 예제 실행결과
 
-![image](https://user-images.githubusercontent.com/64758931/181081858-20d64763-4892-4f02-b328-9da6e0c3c55e.png)
+![image](https://user-images.githubusercontent.com/64758931/181084969-28b08f06-495c-479e-8697-b37018d7dfdd.png)
 
 
 ## 학습 메모
