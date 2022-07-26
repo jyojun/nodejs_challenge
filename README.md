@@ -46,6 +46,8 @@
     console.log(bishop2.possiblePosition());
 
     ``` 
+    ![스크린샷 2022-07-26 오후 7 26 37](https://user-images.githubusercontent.com/64758931/180984963-7295255b-4b82-45f9-a30e-b011947f6543.png)
+
 ## 학습 메모
 
 - 유니코드 출력
