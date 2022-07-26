@@ -60,7 +60,16 @@
     console.log(rook2.possiblePosition());
     ```
     ![image](https://user-images.githubusercontent.com/64758931/180995495-48afabd6-31e3-47d2-b8f8-c3052418fc9d.png)
+- [x] Queen class 생성
+  1.  possiblePosition() -> Rook + Bishop 합침. 
+  2.  실행 결과
+    ```javascript
+  const queen = new Queen("queen", "E1", "black");
+  const queen2 = new Queen("queen", "E8", "white");
 
+  console.log(queen.possiblePosition());
+  console.log(queen2.possiblePosition());
+    ```
 ## 학습 메모
 
 - 유니코드 출력
