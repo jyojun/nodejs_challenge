@@ -1,0 +1,21 @@
+{
+  "name": "day7",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/e2c48cbb35470792aa7bfedde716d141.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/e2c48cbb35470792aa7bfedde716d141"
+  },
+  "homepage": "https://gist.github.com/e2c48cbb35470792aa7bfedde716d141"
+}
