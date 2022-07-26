@@ -1,14 +1,7 @@
 import { file, rank } from "./enum.js";
+import Piece from "./Piece.js";
 
-class Pawn {
-  constructor(type, position, color) {
-    this.type = type;
-    this.position = {
-      row: rank[position[1]],
-      col: file[position[0]],
-    };
-    this.color = color;
-  }
+class Pawn extends Piece {
   possiblePosition() {
     let row = this.position.row;
     let col = this.position.col;

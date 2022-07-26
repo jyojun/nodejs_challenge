@@ -18,6 +18,19 @@
     console.log(pawn.possiblePosition());
     console.log(pawn2.possiblePosition());
     ```
+
+- [x] Knight class 생성
+    1. possiblePosition()
+       1. 왼쪽위, 오른쪽위, 왼쪽아래, 오른쪽아래 각각 2개씩 대각선으로 8가지 가능
+       2. 판의 밖을 나가지 않는다면 result에 push하여 리턴
+    2. 실행 결과
+    ```javascript
+    const knight = new Knight("knight", "B1", "black");
+    const knight2 = new Knight("knight", "G8", "white");
+
+    console.log(knight.possiblePosition());
+    console.log(knight2.possiblePosition());
+    ```
 ## 학습 메모
 
 - 유니코드 출력
