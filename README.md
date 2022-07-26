@@ -76,6 +76,8 @@
   1. 타입별로 검은말, 하얀말이 올 수 있는 위치인지 확인 한다.
   2. 확인 후, board에 각 객체를 저장한다. 
   3.  실행 결과
+  ![image](https://user-images.githubusercontent.com/64758931/181013357-137d53a7-7a45-4f70-bacd-8592c9a9ec88.png)
+
 
 
 ## 학습 메모
