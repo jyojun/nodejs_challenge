@@ -1,4 +1,5 @@
 const file = {
+  // column
   A: 0,
   B: 1,
   C: 2,
@@ -18,6 +19,7 @@ const file = {
 };
 
 const rank = {
+  // row
   1: 0,
   2: 1,
   3: 2,

@@ -20,8 +20,10 @@ class Pawn extends Piece {
   }
 }
 
-const pawn = new Pawn("pawn", "A2", "black");
-const pawn2 = new Pawn("pawn", "F7", "white");
+// const pawn = new Pawn("pawn", "A2", "black");
+// const pawn2 = new Pawn("pawn", "F7", "white");
 
-console.log(pawn.possiblePosition());
-console.log(pawn2.possiblePosition());
+// console.log(pawn.possiblePosition());
+// console.log(pawn2.possiblePosition());
+
+export default Pawn;

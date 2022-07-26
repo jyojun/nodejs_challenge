@@ -21,8 +21,10 @@ class Bishop extends Piece {
   }
 }
 
-const bishop = new Bishop("bishop", "C1", "black");
-const bishop2 = new Bishop("bishop", "F8", "white");
+// const bishop = new Bishop("bishop", "C1", "black");
+// const bishop2 = new Bishop("bishop", "F8", "white");
 
-console.log(bishop.possiblePosition());
-console.log(bishop2.possiblePosition());
+// console.log(bishop.possiblePosition());
+// console.log(bishop2.possiblePosition());
+
+export default Bishop;

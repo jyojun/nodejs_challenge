@@ -34,8 +34,10 @@ class Queen extends Piece {
   }
 }
 
-const queen = new Queen("queen", "E1", "black");
-const queen2 = new Queen("queen", "E8", "white");
+// const queen = new Queen("queen", "E1", "black");
+// const queen2 = new Queen("queen", "E8", "white");
 
-console.log(queen.possiblePosition());
-console.log(queen2.possiblePosition());
+// console.log(queen.possiblePosition());
+// console.log(queen2.possiblePosition());
+
+export default Queen;

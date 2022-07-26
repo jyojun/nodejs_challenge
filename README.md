@@ -72,6 +72,12 @@
     ```
     ![image](https://user-images.githubusercontent.com/64758931/180998006-4e0017f7-554e-4db4-b54d-9ee949b96120.png)
 
+- [x] initPiece() 메소드 생성
+  1. 타입별로 검은말, 하얀말이 올 수 있는 위치인지 확인 한다.
+  2. 확인 후, board에 각 객체를 저장한다. 
+  3.  실행 결과
+
+
 ## 학습 메모
 
 - 유니코드 출력

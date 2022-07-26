@@ -23,8 +23,10 @@ class Rook extends Piece {
   }
 }
 
-const rook = new Rook("rook", "A1", "black");
-const rook2 = new Rook("rook", "H8", "white");
+// const rook = new Rook("rook", "A1", "black");
+// const rook2 = new Rook("rook", "H8", "white");
 
-console.log(rook.possiblePosition());
-console.log(rook2.possiblePosition());
+// console.log(rook.possiblePosition());
+// console.log(rook2.possiblePosition());
+
+export default Rook;

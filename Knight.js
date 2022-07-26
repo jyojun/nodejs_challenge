@@ -56,8 +56,10 @@ class Knight extends Piece {
   }
 }
 
-const knight = new Knight("knight", "B1", "black");
-const knight2 = new Knight("knight", "G8", "white");
+// const knight = new Knight("knight", "B1", "black");
+// const knight2 = new Knight("knight", "G8", "white");
 
-console.log(knight.possiblePosition());
-console.log(knight2.possiblePosition());
+// console.log(knight.possiblePosition());
+// console.log(knight2.possiblePosition());
+
+export default Knight;
