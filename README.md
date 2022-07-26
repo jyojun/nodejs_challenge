@@ -18,6 +18,7 @@
     console.log(pawn.possiblePosition());
     console.log(pawn2.possiblePosition());
     ```
+    ![image](https://user-images.githubusercontent.com/64758931/180969573-bb110bfa-9485-4cf3-9872-35cbee732279.png)
 
 - [x] Knight class 생성
     1. possiblePosition()
@@ -31,6 +32,8 @@
     console.log(knight.possiblePosition());
     console.log(knight2.possiblePosition());
     ```
+    ![image](https://user-images.githubusercontent.com/64758931/180969662-24af7bc7-0cb9-4997-b367-62c4e32552f5.png)
+
 ## 학습 메모
 
 - 유니코드 출력
