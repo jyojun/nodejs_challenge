@@ -45,6 +45,9 @@ console.log("합집합 sum(A U B) = ", countA.sum(countB).resultAll());
 console.log("차집합 sum(A - B) = ", countA.complement(countB).resultAll());
 console.log("교집합 sum(A n B) = ", countA.intersect(countB).resultAll());
 ```
+![image](https://user-images.githubusercontent.com/64758931/181356004-114499b7-5647-4bda-94f6-51eabb0345c5.png)
+
+
 ## 학습 메모
 - Set.has(), Array.includes() 의 시간 복잡도 https://velog.io/@sozero/TIL-220307-Set.has-%EC%99%80-Array.includes-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84
 
