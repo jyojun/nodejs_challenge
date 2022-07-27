@@ -9,12 +9,12 @@
    - [x] resultAll() : 모든 요소를 1차원 배열로 리턴한다.
 2. CountSet class
    - [x] append(element): Count Set에 새로운 요소 추가
-   - [x] remove(element): Count Set에 새로운 요소 추가
-   - [x] countFor(element): Count Set에 새로운 요소 추가
-   - [x] sum(other): Count Set에 새로운 요소 추가
-   - [x] complement(other): Count Set에 새로운 요소 추가
-   - [x] intersect(other): Count Set에 새로운 요소 추가
-   - [x] resultAll(): Count Set에 새로운 요소 추가
+   - [x] remove(element): Count Set에 특정 요소 제거
+   - [x] countFor(element): Count Set에 특정 요소 갯수
+   - [x] sum(other): Count Set에 다른 Count Set 과의 합집합
+   - [x] complement(other): Count Set에 다른 Count Set 과의 차집합
+   - [x] intersect(other): Count Set에 다른 Count Set 과의 교집합 -> 겹치는 Count은 1로 맞춰준다.(BoostSet을 사용함)
+   - [x] resultAll(): Count Set의 모든요소의 Count Object 리턴
    - [x] filter(): 클로저를 매개변수로 넘기는 메소드
    - [ ] map() 
    - [x] reduce()
