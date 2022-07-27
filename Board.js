@@ -239,7 +239,22 @@ class Board {
     this.types[color][type]++;
     this.board[row][col] = p;
   }
-  setPiece(type, position) {}
+  setPiece(type, position) {
+    let row = rank[position[1]];
+    let col = file[position[0]];
+    let color = this.turn;
+
+    if (this.board[row][col] === ".") {
+      // 비어있으면 배치
+      if (type === "pawn") p = new Pawn(type, position, color);
+      if (type === "knight") p = new Knight(type, position, color);
+      if (type === "bishop") p = new Bishop(type, position, color);
+      if (type === "rook") p = new Rook(type, position, color);
+      if (type === "queen") p = new Queen(type, position, color);
+    } else {
+      console.log(type, "여기에 배치할 수 없습니다.");
+    }
+  }
   possible_move(from) {
     let from_pos = { row: rank[from[1]], col: file[from[0]] };
     let p = this.board[from_pos.row][from_pos.col];
