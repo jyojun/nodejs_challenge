@@ -86,6 +86,7 @@
 - 스레드 스케줄링
   - [x] 스레드로 병렬 처리
   - process time / 2 의 몫 만큼 worker 객체 생성하여 total_time 을 2씩 늘려주는 작업 진행
+  ![image](https://user-images.githubusercontent.com/64758931/181626291-b298155a-a640-4f2a-ac65-b27cfdb68a30.png)
 
 ## 학습 메모
 
