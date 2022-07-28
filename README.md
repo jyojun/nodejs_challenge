@@ -63,7 +63,9 @@
     deadlineScheduler.start();
     ```
 
-    실행 결과
+    실행 결과 (P1 프로세스가 deadline에도 일을 끝내지 못해서 종료됨)
+    ![스크린샷 2022-07-29 오전 2 08 29](https://user-images.githubusercontent.com/64758931/181597494-321b99aa-e322-468a-a45f-0efa9ae27a61.png)
+
 
     ```javascript
     const process1 = new Process_D("P1", 50, 90); // deadline 60 -> 90으로 늘려줌
@@ -79,7 +81,9 @@
     deadlineScheduler.start();
     ```
 
-    실행결과
+    실행결과 (P1 프로세스의 기한을 60 -> 90으로 늘려 정상적으로 종료가 됨)
+    ![image](https://user-images.githubusercontent.com/64758931/181597459-15df5948-f201-4c4d-b6df-087a02c067e2.png)
+
 
 ## 학습 메모
 
@@ -113,7 +117,7 @@
 
 ### 스케줄링 상태 전이도
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56270a76-96f7-425b-b8e3-17c82bada69e/Untitled.png)
+![image](https://user-images.githubusercontent.com/64758931/181597750-14fba532-d048-4330-b072-a8e62920a7cf.png)
 
 ### 스케줄링 기법
 
@@ -122,6 +126,3 @@
 - 비선점(Non-Preemptive 스케줄링
   선점 스케줄링과 반대로 CPU가 어떤 프로세스에 의해 점유 중일때, 다른 프로세스가 차지할 수 없다.
 
-```
-
-```
