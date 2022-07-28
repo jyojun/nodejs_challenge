@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c"
   },
-  "homepage": "https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c"
+  "homepage": "https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c",
+  "dependencies": {
+    "n": "^9.0.0",
+    "worker-thread": "^1.1.0",
+    "worker-threads": "^1.0.0"
+  }
 }

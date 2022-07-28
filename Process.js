@@ -1,3 +1,5 @@
+import { Worker } from "worker_threads";
+
 export class Process {
   constructor(name, time) {
     this.status = "ready"; // 프로세스 상태
@@ -5,6 +7,26 @@ export class Process {
     this.total_time = 0; // 누적 실행 시간
     this.name = name; // 프로세스 이름
     this.time = time;
+
+    this.threads = [];
+  }
+
+  initThreads() {
+    let cnt = parseInt(this.time / 2);
+    for (let i = 0; i < cnt; i++) {
+      let thread = new Worker("./worker.js");
+      console.log(`${this.name} process's thread ${i + 1}th thread start`);
+      thread.postMessage([this.total_time, this.time]);
+
+      thread.on("message", (value) => {
+        this.total_time = value;
+      });
+
+      thread.on("close", () => {
+        thread.terminate();
+      });
+      console.log(`${this.name} process's thread ${i + 1}th thread end`);
+    }
   }
 }
 

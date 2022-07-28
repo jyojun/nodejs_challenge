@@ -1,15 +1,20 @@
 import { Process } from "./Process.js";
 
-class RRScheduler {
+export class RRScheduler {
   constructor() {
     this.queue = [];
     this.terminated = [];
     this.tick;
   }
-
   start() {
     this.tick = setInterval(() => {
       this.update();
+    }, 100);
+  }
+
+  start2() {
+    this.tick = setInterval(() => {
+      this.update2();
     }, 100);
   }
 
@@ -18,6 +23,35 @@ class RRScheduler {
   }
   enqueue(p) {
     this.queue.push(p);
+  }
+  update2() {
+    if (this.queue.length == 0) {
+      this.stop();
+      console.log("라운드 로빈 스케줄링 모두 종료");
+      this.calculate();
+      return;
+    }
+    let run_p = this.queue.shift();
+    run_p.status = "running";
+    run_p.initThreads();
+    for (const p of this.queue) {
+      if (p.status !== "terminated") {
+        p.status = "waiting";
+        p.wait++;
+      }
+    }
+
+    if (run_p.total_time >= run_p.time) {
+      run_p.status = "terminated";
+      console.log(run_p.name, "프로세스 종료");
+      this.terminated.push(run_p);
+    } else {
+      this.queue.push(run_p);
+    }
+
+    this.display();
+
+    console.log("\n");
   }
   update() {
     if (this.queue.length == 0) {
@@ -95,13 +129,13 @@ class RRScheduler {
   }
 }
 
-const process1 = new Process("P1", 50);
-const process2 = new Process("P2", 25);
-const process3 = new Process("P3", 7);
+// const process1 = new Process("P1", 50);
+// const process2 = new Process("P2", 25);
+// const process3 = new Process("P3", 7);
 
-const RRS = new RRScheduler();
-RRS.enqueue(process1);
-RRS.enqueue(process2);
-RRS.enqueue(process3);
+// const RRS = new RRScheduler();
+// RRS.enqueue(process1);
+// RRS.enqueue(process2);
+// RRS.enqueue(process3);
 
-RRS.start();
+// RRS.start();

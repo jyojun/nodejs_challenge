@@ -23,20 +23,6 @@ class DLScheduler {
       return;
     }
 
-    // if (this.queue[0].deadline <= this.total_time) {
-    //   let p = this.queue.shift();
-    //   p.status = "terminated(failed)";
-    //   this.terminated.push(p);
-
-    //     if (this.queue.length == 0) {
-    //       this.stop();
-    //       console.log("기한부 스케줄링 모두 종료");
-    //       this.display();
-    //       this.calculate();
-    //       return;
-    //     }
-    // }
-
     if (this.queue[0] === this.recent) {
       let p = this.queue.shift();
       this.queue.push(p); // 맨뒤로 보내준다.
