@@ -1,9 +1,10 @@
-import { Process_P } from "./Process.js";
-class PriorityScheduler {
+import { Process_D } from "./Process.js";
+class DLScheduler {
   constructor() {
     this.queue = [];
     this.terminated = [];
     this.recent; // 가장 최근에 사용하던 프로세스를 저장.
+    this.total_time = 0; // 스케줄링 시작 이후 시간;
   }
 
   start() {
@@ -15,12 +16,26 @@ class PriorityScheduler {
     clearInterval(this.tick);
   }
   update() {
-    if (this.queue.length == 0) {
+    if (this.queue.length === 0) {
       this.stop();
-      console.log("우선순위 스케줄링 모두 종료");
+      console.log("기한부 스케줄링 모두 종료");
       this.calculate();
       return;
     }
+
+    // if (this.queue[0].deadline <= this.total_time) {
+    //   let p = this.queue.shift();
+    //   p.status = "terminated(failed)";
+    //   this.terminated.push(p);
+
+    //     if (this.queue.length == 0) {
+    //       this.stop();
+    //       console.log("기한부 스케줄링 모두 종료");
+    //       this.display();
+    //       this.calculate();
+    //       return;
+    //     }
+    // }
 
     if (this.queue[0] === this.recent) {
       let p = this.queue.shift();
@@ -36,24 +51,26 @@ class PriorityScheduler {
         p.wait++;
       }
     }
+    this.total_time++;
 
     if (run_p.total_time === run_p.time) {
       run_p.status = "terminated";
       console.log(run_p.name, "프로세스 종료");
       this.terminated.push(run_p);
+    } else if (run_p.deadline <= this.total_time) {
+      run_p.status = `terminated(Deadline ${run_p.deadline} missed)`;
+      this.terminated.push(run_p);
     } else {
       this.enqueue(run_p);
     }
-
     this.display();
-
     console.log("\n");
   }
   enqueue(p) {
     this.queue.push(p);
 
     this.queue.sort((a, b) => {
-      return a.priority - b.priority;
+      return a.deadline - b.deadline;
     });
   }
   display() {
@@ -73,6 +90,7 @@ class PriorityScheduler {
         );
       }
     });
+    console.log(`총 진행 시간 : ${this.total_time}`);
   }
   calculate() {
     let total_wait_time = 0;
@@ -103,14 +121,14 @@ class PriorityScheduler {
   }
 }
 
-const process1 = new Process_P("P1", 7, 3);
-const process2 = new Process_P("P2", 25, 1);
-const process3 = new Process_P("P3", 50, 2);
+const process1 = new Process_D("P1", 50, 90);
+const process2 = new Process_D("P2", 25, 50);
+const process3 = new Process_D("P3", 7, 20);
 
-const priorityScheduler = new PriorityScheduler();
+const deadlineScheduler = new DLScheduler();
 
-priorityScheduler.enqueue(process1);
-priorityScheduler.enqueue(process2);
-priorityScheduler.enqueue(process3);
+deadlineScheduler.enqueue(process1);
+deadlineScheduler.enqueue(process2);
+deadlineScheduler.enqueue(process3);
 
-priorityScheduler.start();
+deadlineScheduler.start();

@@ -44,7 +44,42 @@
     실행 결과
     ![image](https://user-images.githubusercontent.com/64758931/181522681-3509f329-2087-4268-b47a-d5e85cca5c95.png)
 
-  - [ ] 기한부 스케줄링
+  - [x] 기한부 스케줄링
+
+    - earliest deadline first로 구현 해 주었기 때문에, priority 와 비슷하게 구현
+    - priority scheduling 과 차이점은, total 시간이 process의 deadline이 지나면 terminated(deadline missed) 상태로 변환하여, 더이상 실행시키지 않는다.
+
+    ```javascript
+    const process1 = new Process_D("P1", 50, 60); // deadline 60
+    const process2 = new Process_D("P2", 25, 50); // deadline 50
+    const process3 = new Process_D("P3", 7, 20); // deadline 20
+
+    const deadlineScheduler = new DLScheduler();
+
+    deadlineScheduler.enqueue(process1);
+    deadlineScheduler.enqueue(process2);
+    deadlineScheduler.enqueue(process3);
+
+    deadlineScheduler.start();
+    ```
+
+    실행 결과
+
+    ```javascript
+    const process1 = new Process_D("P1", 50, 90); // deadline 60 -> 90으로 늘려줌
+    const process2 = new Process_D("P2", 25, 50);
+    const process3 = new Process_D("P3", 7, 20);
+
+    const deadlineScheduler = new DLScheduler();
+
+    deadlineScheduler.enqueue(process1);
+    deadlineScheduler.enqueue(process2);
+    deadlineScheduler.enqueue(process3);
+
+    deadlineScheduler.start();
+    ```
+
+    실행결과
 
 ## 학습 메모
 

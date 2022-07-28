@@ -18,3 +18,14 @@ export class Process_P extends Process {
     this.priority = priority; // 우선순위
   }
 }
+
+export class Process_D extends Process {
+  constructor(name, time, deadline) {
+    super(name, time);
+    this.status = "ready"; // 프로세스 상태
+    this.wait = 0; // 총 대기시간
+    this.total_time = 0; // 누적 실행 시간
+
+    this.deadline = deadline;
+  }
+}
