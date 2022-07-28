@@ -20,6 +20,7 @@
     ```
 
     실행 결과
+    ![image](https://user-images.githubusercontent.com/64758931/181492967-426265ef-52a6-43a4-9b49-5a54e2247920.png)
 
   - [ ] 기한부 스케줄링
   - [ ] 고정 우선순위 스케줄링
