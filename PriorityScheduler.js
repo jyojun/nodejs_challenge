@@ -1,10 +1,9 @@
-import { Process } from "./Process.js";
-
-class RRScheduler {
+import { Process_P } from "./Process.js";
+class PriorityScheduler {
   constructor() {
     this.queue = [];
     this.terminated = [];
-    this.tick;
+    this.recent; // 가장 최근에 사용하던 프로세스를 저장.
   }
 
   start() {
@@ -12,21 +11,23 @@ class RRScheduler {
       this.update();
     }, 100);
   }
-
   stop() {
     clearInterval(this.tick);
-  }
-  enqueue(p) {
-    this.queue.push(p);
   }
   update() {
     if (this.queue.length == 0) {
       this.stop();
-      console.log("라운드 로빈 스케줄링 모두 종료");
+      console.log("우선순위 스케줄링 모두 종료");
       this.calculate();
       return;
     }
+
+    if (this.queue[0] === this.recent) {
+      let p = this.queue.shift();
+      this.queue.push(p); // 맨뒤로 보내준다.
+    }
     let run_p = this.queue.shift();
+    this.recent = run_p;
     run_p.status = "running";
     run_p.total_time++;
     for (const p of this.queue) {
@@ -41,12 +42,19 @@ class RRScheduler {
       console.log(run_p.name, "프로세스 종료");
       this.terminated.push(run_p);
     } else {
-      this.queue.push(run_p);
+      this.enqueue(run_p);
     }
 
     this.display();
 
     console.log("\n");
+  }
+  enqueue(p) {
+    this.queue.push(p);
+
+    this.queue.sort((a, b) => {
+      return a.priority - b.priority;
+    });
   }
   display() {
     let sorted_queue = [...this.terminated, ...this.queue];
@@ -95,13 +103,14 @@ class RRScheduler {
   }
 }
 
-const process1 = new Process("P1", 50);
-const process2 = new Process("P2", 25);
-const process3 = new Process("P3", 7);
+const process1 = new Process_P("P1", 7, 3);
+const process2 = new Process_P("P2", 25, 1);
+const process3 = new Process_P("P3", 50, 2);
 
-const RRS = new RRScheduler();
-RRS.enqueue(process1);
-RRS.enqueue(process2);
-RRS.enqueue(process3);
+const priorityScheduler = new PriorityScheduler();
 
-RRS.start();
+priorityScheduler.enqueue(process1);
+priorityScheduler.enqueue(process2);
+priorityScheduler.enqueue(process3);
+
+priorityScheduler.start();

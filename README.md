@@ -4,6 +4,9 @@
 
 - 프로세스 스케줄링 시각화
 
+  - 공통 요구 사항
+    - [x] 프로세스 6개를 생성한다.
+    - [x] 프로세스를 하나씩만 1초동안만 1개씩만 실행 시킨다.
   - [x] 라운드 로빈 스케줄링
 
     ```javascript
@@ -22,8 +25,25 @@
     실행 결과
     ![image](https://user-images.githubusercontent.com/64758931/181492967-426265ef-52a6-43a4-9b49-5a54e2247920.png)
 
+  - [x] 고정 우선순위 스케줄링
+
+    ```javascript
+    const process1 = new Process_P("P1", 7, 3);
+    const process2 = new Process_P("P2", 25, 1);
+    const process3 = new Process_P("P3", 50, 2);
+
+    const priorityScheduler = new PriorityScheduler();
+
+    priorityScheduler.enqueue(process1);
+    priorityScheduler.enqueue(process2);
+    priorityScheduler.enqueue(process3);
+
+    priorityScheduler.start();
+    ```
+
+    실행 결과
+
   - [ ] 기한부 스케줄링
-  - [ ] 고정 우선순위 스케줄링
 
 ## 학습 메모
 
@@ -65,3 +85,7 @@
   CPU가 어떤 프로세스에 의해 점유 중일 때, 우선 순위가 높은 프로세스가 CPU를 차지할 수 있다.
 - 비선점(Non-Preemptive 스케줄링
   선점 스케줄링과 반대로 CPU가 어떤 프로세스에 의해 점유 중일때, 다른 프로세스가 차지할 수 없다.
+
+```
+
+```
