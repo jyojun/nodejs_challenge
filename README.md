@@ -3,7 +3,24 @@
 ## 체크 포인트
 
 - 프로세스 스케줄링 시각화
-  - [ ] 라운드 로빈 스케줄링
+
+  - [x] 라운드 로빈 스케줄링
+
+    ```javascript
+    const process1 = new Process("P1", 50);
+    const process2 = new Process("P2", 25);
+    const process3 = new Process("P3", 7);
+
+    const RRS = new RRScheduler();
+    RRS.enqueue(process1);
+    RRS.enqueue(process2);
+    RRS.enqueue(process3);
+
+    RRS.start();
+    ```
+
+    실행 결과
+
   - [ ] 기한부 스케줄링
   - [ ] 고정 우선순위 스케줄링
 
