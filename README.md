@@ -42,6 +42,7 @@
     ```
 
     실행 결과
+    ![image](https://user-images.githubusercontent.com/64758931/181522681-3509f329-2087-4268-b47a-d5e85cca5c95.png)
 
   - [ ] 기한부 스케줄링
 
