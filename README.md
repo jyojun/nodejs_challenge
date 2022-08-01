@@ -13,6 +13,8 @@
     ```
   - [x] windows style lastDirectory, components, abolusteString 
   - [x] appendComponent() - 경로에 요소를 추가
+
+  - [x] deleteLastComponent() - 마지막 경로를 제거한다.  
     ```javascript
     const path = new Path("/home/user/boost/camp/challenge/day17/problem.md");
     console.log(path.stringify());
@@ -22,9 +24,7 @@
     path.deleteLastComponent();
     console.log(path.stringify());
     ```
-    실행 결과
-    ![image](https://user-images.githubusercontent.com/64758931/182191059-ca60c7cc-ccb2-4504-925a-6d1615b77cf3.png)
-
+    - 실행 결과
 ## 학습 메모
 
 ### 1. 정규 표현식 문법 정리
