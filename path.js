@@ -144,7 +144,12 @@ class Path {
           }
         }
 
-        return "../".repeat(dir.length + 1) + to_dir.slice(0) + "/" + to_base;
+        return (
+          "../".repeat(dir.length + 1) +
+          to_dir.slice(0).join("/") +
+          "/" +
+          to_base
+        );
       } else {
         const regex = /([A-Z]:\\)?(([a-zA-Z0-9]+\\)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)?/;
         let to_result = to.match(regex);
