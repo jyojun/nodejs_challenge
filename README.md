@@ -12,6 +12,11 @@
     const regex = /([A-Z]:\\)?(([a-zA-Z0-9]+\\)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
     ```
   - [x] windows style lastDirectory, components, abolusteString 
+  
+  - 실행결과
+  
+  ![image](https://user-images.githubusercontent.com/64758931/182144435-2c027f02-90b3-4f5d-8095-27a58f054119.png)
+
 
 ## 학습 메모
 
