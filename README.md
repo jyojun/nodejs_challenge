@@ -23,6 +23,7 @@
     console.log(path.stringify());
     ```
     실행 결과
+    ![image](https://user-images.githubusercontent.com/64758931/182191059-ca60c7cc-ccb2-4504-925a-6d1615b77cf3.png)
 
 ## 학습 메모
 
