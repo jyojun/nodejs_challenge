@@ -107,7 +107,6 @@ class Path {
     let result = "";
     let cnt = 1;
     let dir = this.dir;
-    console.log(dir);
     if (to.includes("/")) {
       to_OS = "Unix";
     } else if (to.includes("\\")) {
