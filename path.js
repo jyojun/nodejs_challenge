@@ -8,46 +8,44 @@ class Path {
   #components = [];
   #absoluteString;
 
-  #isUnix;
+  #OS;
   constructor(path) {
     if (path.includes("/")) {
-      this.#isUnix = true;
+      this.#OS = "Unix";
       // root, 전체 dir, last directory, name, ext
       const regex = /(\/)(([a-zA-Z0-9]+\/)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
       const result = path.match(regex);
       this.#root = result[1];
-      this.#dir = result[2];
+      this.#dir = result[2].split("/");
+      this.#dir = this.#dir.slice(0, this.#dir.length - 1);
       this.#lastDirectory = result[3].split("/")[0];
       this.#name = result[4];
       this.#ext = result[5];
       this.#base = this.#name + this.#ext;
 
       this.#components.push(this.#root);
-      this.#dir.split("/").map((x, idx) => {
-        if (idx !== this.#dir.split("/").length - 1) this.#components.push(x);
-      });
-      this.#absoluteString = this.#root + this.#components.slice(1).join("/");
+      this.#components.concat(this.#dir);
+      this.#components.push(this.#base);
     } else if (path.includes("\\")) {
-      this.#isUnix = false;
+      this.#OS = "Windows";
       const regex = /([A-Z]:\\)?(([a-zA-Z0-9]+\\)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
       const result = path.match(regex);
       this.#root = result[1];
-      this.#dir = result[2];
+      this.#dir = result[2].split("\\");
+      this.#dir = this.#dir.slice(0, this.#dir.length - 1);
       this.#lastDirectory = result[3].split("\\")[0];
       this.#name = result[4];
       this.#ext = result[5];
       this.#base = this.#name + this.#ext;
 
       this.#components.push(this.#root);
-      this.#dir.split("\\").map((x, idx) => {
-        if (idx !== this.#dir.split("\\").length - 1) this.#components.push(x);
-      });
-      this.#absoluteString = this.#root + this.#components.slice(1).join("\\");
+      this.#components.concat(this.#dir);
+      this.#components.push(this.#base);
     }
   }
 
-  get isUnix() {
-    return this.#isUnix;
+  get OS() {
+    return this.#OS;
   }
 
   get root() {
@@ -73,18 +71,26 @@ class Path {
   }
 
   get components() {
+    this.#components = [this.root];
+    this.#components = this.#components.concat(this.dir);
+    this.#components.push(this.base);
     return this.#components;
   }
   get absoluteString() {
-    return this.#absoluteString;
+    if (this.OS === "Unix") {
+      this.#absoluteString = this.#root + this.#dir.join("/") + "/";
+    } else if (this.OS === "Windows") {
+      this.#absoluteString = this.#root + this.#dir.join("\\") + "\\";
+    }
+    return this.#absoluteString + this.#base;
   }
 
-  appendPathComponent(new_path) {
-    this.#components.push(new_path);
-    if (this.isUnix)
-      this.#absoluteString = this.#root + this.#components.slice(1).join("/");
-    else
-      this.#absoluteString = this.#root + this.#components.slice(1).join("\\");
+  appendComponent(new_path) {
+    this.#dir.push(new_path);
+  }
+
+  deleteLastComponent() {
+    this.#dir.pop();
   }
 
   stringify() {
