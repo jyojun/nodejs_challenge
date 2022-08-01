@@ -25,6 +25,7 @@
     console.log(path.stringify());
     ```
     - 실행 결과
+
     ![image](https://user-images.githubusercontent.com/64758931/182191713-8b782e57-cc49-4c29-8700-bc76c551ca02.png)
 
   - [x] 두 개 Path 상대 경로 비교 relative() 기능 구현
@@ -35,6 +36,9 @@
     console.log(path2.relative("/second/most/jk"));
     ```
     - 실행 결과
+
+    ![image](https://user-images.githubusercontent.com/64758931/182262050-420bb1e1-3f54-4641-8410-917f7bf0d6e0.png)
+
 
 ## 학습 메모
 
