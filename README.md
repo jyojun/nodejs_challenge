@@ -14,13 +14,17 @@
   - [x] windows style lastDirectory, components, abolusteString 
   - [x] appendComponent() - 경로에 요소를 추가
     ```javascript
-    appendPathComponent(new_path) {
-    this.#components.push(new_path);
-    if (this.isUnix)
-      this.#absoluteString = this.#root + this.#components.slice(1).join("/");
-    else
-      this.#absoluteString = this.#root + this.#components.slice(1).join("\\");
-    }
+    const path = new Path("/home/user/boost/camp/challenge/day17/problem.md");
+    console.log(path.stringify());
+    path.appendPathComponent("testDir");
+    console.log(path.stringify());
+
+    const path2 = new Path(
+      "C:\\home\\user\\boost\\camp\\challenge\\day17\\problem.md"
+    );
+    console.log(path2.stringify());
+    path2.appendPathComponent("hello");
+    console.log(path2.stringify());
     ```
     실행 결과
 
