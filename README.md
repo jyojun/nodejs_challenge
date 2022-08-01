@@ -25,6 +25,8 @@
     console.log(path.stringify());
     ```
     - 실행 결과
+    ![image](https://user-images.githubusercontent.com/64758931/182191713-8b782e57-cc49-4c29-8700-bc76c551ca02.png)
+
 ## 학습 메모
 
 ### 1. 정규 표현식 문법 정리
