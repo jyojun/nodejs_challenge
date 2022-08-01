@@ -27,6 +27,15 @@
     - 실행 결과
     ![image](https://user-images.githubusercontent.com/64758931/182191713-8b782e57-cc49-4c29-8700-bc76c551ca02.png)
 
+  - [x] 두 개 Path 상대 경로 비교 relative() 기능 구현
+    ```javascript
+    const path = new Path("/data/result/test/aaa");
+    console.log(path.relative("/data/result/source/bbb"));
+    const path2 = new Path("/first/second/last/param");
+    console.log(path2.relative("/second/most/jk"));
+    ```
+    - 실행 결과
+
 ## 학습 메모
 
 ### 1. 정규 표현식 문법 정리
@@ -78,4 +87,5 @@ https://github.com/dream-ellie/regex/blob/master/README.md
 
 https://regexone.com/lesson/kleene_operators?
 
-- path module 
+- jest 설치 에러
+  - https://bongra.tistory.com/102
