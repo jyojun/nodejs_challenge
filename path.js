@@ -7,8 +7,11 @@ class Path {
   #lastDirectory;
   #components = [];
   #absoluteString;
+
+  #isUnix;
   constructor(path) {
     if (path.includes("/")) {
+      this.#isUnix = true;
       // root, 전체 dir, last directory, name, ext
       const regex = /(\/)(([a-zA-Z0-9]+\/)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
       const result = path.match(regex);
@@ -25,6 +28,7 @@ class Path {
       });
       this.#absoluteString = this.#root + this.#components.slice(1).join("/");
     } else if (path.includes("\\")) {
+      this.#isUnix = false;
       const regex = /([A-Z]:\\)?(([a-zA-Z0-9]+\\)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
       const result = path.match(regex);
       this.#root = result[1];
@@ -40,6 +44,10 @@ class Path {
       });
       this.#absoluteString = this.#root + this.#components.slice(1).join("\\");
     }
+  }
+
+  get isUnix() {
+    return this.#isUnix;
   }
 
   get root() {
@@ -69,6 +77,14 @@ class Path {
   }
   get absoluteString() {
     return this.#absoluteString;
+  }
+
+  appendPathComponent(new_path) {
+    this.#components.push(new_path);
+    if (this.isUnix)
+      this.#absoluteString = this.#root + this.#components.slice(1).join("/");
+    else
+      this.#absoluteString = this.#root + this.#components.slice(1).join("\\");
   }
 
   stringify() {
