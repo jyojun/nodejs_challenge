@@ -14,9 +14,9 @@
 
 import { Path } from "./path.js";
 
-const path = new Path("/home/user/boost/camp/challenge/jday17/problem.md");
-
-console.log(path.root);
-console.log(path.dir);
-console.log(path.base[path.base.length - 2]);
-console.log(path.ext);
+const path = new Path("/home/user/boost/camp/challenge/day17/problem.md");
+console.log(path.stringify());
+const path2 = new Path(
+  "C:\\home\\user\\boost\\camp\\challenge\\day17\\problem.md"
+);
+console.log(path2.stringify());

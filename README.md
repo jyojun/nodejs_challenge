@@ -2,8 +2,16 @@
 
 ## 체크 포인트
 - path class 생성자 함수 
-  - [x] unix 파일 경로 정규표현식으로 root, base, ext, name 으로 나누기 
-  - [ ] windows 파일 경로 정규표현식으로 root, base, ext, name 으로 나누기 
+  - [x] unix 파일 경로 정규표현식으로 root, dir, name, ext 으로 나누기 
+    ```javascript
+    const regex = /(\/)(([a-zA-Z0-9]+\/)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
+    ```
+  - [x] unix style lastDirectory, components, abolusteString 
+  - [x] windows 파일 경로 정규표현식으로 root, dir, ext, name 으로 나누기 
+    ```javascript
+    const regex = /([A-Z]:\\)?(([a-zA-Z0-9]+\\)+)([a-zA-Z0-9)]+)(.[a-zA-Z0-9.]+)/;
+    ```
+  - [x] windows style lastDirectory, components, abolusteString 
 
 ## 학습 메모
 
@@ -55,3 +63,5 @@
 https://github.com/dream-ellie/regex/blob/master/README.md
 
 https://regexone.com/lesson/kleene_operators?
+
+- path module 
