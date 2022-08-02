@@ -14,6 +14,7 @@
 - [ ] log 명령어 요구사항
 - [ ] restore 명령어 요구사항
 
+![image](https://user-images.githubusercontent.com/64758931/182495752-3bc4f3f5-a6c0-41a9-b0bd-df3001b7188e.png)
 
 
 ## 학습 메모
