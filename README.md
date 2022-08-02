@@ -10,3 +10,8 @@
 
 - fs 모듈 파일 입출력 처리
 https://www.daleseo.com/js-node-fs/
+
+- 상위 Directory 까지 한번에 생성 (fs mkdir recursive)
+https://secondmemory.kr/667
+
+- 

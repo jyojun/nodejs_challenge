@@ -12,4 +12,17 @@ function init(path) {
   mkdir(`${path}/.mit/index`);
 }
 
-init("test2");
+function makeRandomFile(dirPath, name) {
+  const isExists = fs.existsSync(`${dirPath}/${name}`);
+  if (!isExists) {
+    try {
+      const file = `${dirPath}/${name}.txt`;
+      const data = "test";
+      fs.writeFile(file, data, (err) => console.log(err));
+    } catch (err) {
+      console.log(err);
+    }
+  }
+}
+init("test");
+makeRandomFile("test", "testFile");
