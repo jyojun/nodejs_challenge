@@ -5,7 +5,8 @@
   "description": "## 체크 포인트",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node input.js"
   },
   "repository": {
     "type": "git",

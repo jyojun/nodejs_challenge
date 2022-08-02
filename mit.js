@@ -15,6 +15,9 @@ export function init(path) {
 }
 
 export function ls(path) {
+  if (!path) {
+    return fs.readdirSync("./");
+  }
   return fs.readdirSync(path);
 }
 
@@ -67,16 +70,15 @@ export function commit(dirPath) {
           // zlib 압축
           inp.pipe(gzip).pipe(out);
 
-          const fileSize = fs.statSync(
-            dirPath + "/.mit/objects/" + dirName + "/" + fileName + ".gz"
-          ).size;
-          // tree
-          treeContent += `${blob_hash} ${fileSize} ${file}`;
-          console.log(treeContent);
+          // const fileSize = fs.statSync(
+          //   dirPath + "/.mit/objects/" + dirName + "/" + fileName + ".gz"
+          // ).size;
+          // // tree
+          // treeContent += `${blob_hash} ${fileSize} ${file}\n`;
+          // console.log(treeContent);
         }
       });
     }
-    console.log(treeContent);
   });
 
   // tree object 생성
@@ -84,4 +86,15 @@ export function commit(dirPath) {
   // tree object 내용으로 해시값으로 blob과 동일하게 파일명 지정
 
   // commit object 생성
+
+  // 이전 tree 해시값, 현재 tree 해시값
+
+  // 날짜
+  const date = new Date().toString();
 }
+
+function log(dirPath) {
+  // dirPath 에 해당하는 commit을 찾아 이력을 출력
+}
+
+function restore(dirPath) {}
