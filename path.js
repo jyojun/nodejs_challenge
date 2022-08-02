@@ -96,10 +96,22 @@ class Path {
 
   appendComponent(new_path) {
     this.#dir.push(new_path);
+    if (this.OS === "Unix") {
+      this.#absoluteString = this.#root + this.#dir.join("/") + "/";
+    } else if (this.OS === "Windows") {
+      this.#absoluteString = this.#root + this.#dir.join("\\") + "\\";
+    }
+    return this.#absoluteString + this.#base;
   }
 
   deleteLastComponent() {
     this.#dir.pop();
+    if (this.OS === "Unix") {
+      this.#absoluteString = this.#root + this.#dir.join("/") + "/";
+    } else if (this.OS === "Windows") {
+      this.#absoluteString = this.#root + this.#dir.join("\\") + "\\";
+    }
+    return this.#absoluteString + this.#base;
   }
 
   relative(to) {
@@ -137,7 +149,10 @@ class Path {
           for (let j = dir.length - 1; j > 0; j--) {
             if (to_dir[i] === dir[j]) {
               return (
-                "../".repeat(cnt) + to_dir.slice(j).join("/") + "/" + to_base
+                "../".repeat(cnt) +
+                to_dir.slice(j + 1).join("/") +
+                "/" +
+                to_base
               );
             }
             cnt++;
@@ -169,13 +184,21 @@ class Path {
           for (let j = dir.length - 1; j > 0; j--) {
             if (to_dir[i] === dir[j]) {
               return (
-                "..\\".repeat(j) + to_dir.slice(j).join("\\") + "\\" + to_base
+                "..\\".repeat(j) +
+                to_dir.slice(j + 1).join("\\") +
+                "\\" +
+                to_base
               );
             }
             cnt++;
           }
         }
-        return "..\\".repeat(dir.length + 1) + to_dir.slice(0) + "\\" + to_base;
+        return (
+          "..\\".repeat(dir.length + 1) +
+          to_dir.slice(0).join("\\") +
+          "\\" +
+          to_base
+        );
       }
     } else {
       throw Error("서로 다른 OS style의 파일 경로는 비교할 수 없습니다.");

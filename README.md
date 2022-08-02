@@ -39,6 +39,11 @@
 
     ![image](https://user-images.githubusercontent.com/64758931/182262050-420bb1e1-3f54-4641-8410-917f7bf0d6e0.png)
 
+  - [x] path stringify, apppendComponent, deleteLastComponent, relative 메소드 test
+    - 실행 결과
+
+  - 오류는 충분히 검증되지 못했음.
+
 
 ## 학습 메모
 
