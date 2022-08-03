@@ -2,7 +2,7 @@ const base64_table =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 // 인코딩
-export function base64(str) {
+export function base64_encoder(str) {
   // 1. 문자열 -> 아스키 코드 변환
   let ascii = [];
   for (let i = 0; i < str.length; i++) {
@@ -48,4 +48,7 @@ export function base64(str) {
 
   return result;
 }
-base64("Hello BoostCamper,\n\tThis message written by JK.\n");
+
+export function base64_decoder(str) {}
+
+base64_encoder("Hello BoostCamper,\n\tThis message written by JK.\n");

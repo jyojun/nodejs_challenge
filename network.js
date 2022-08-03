@@ -12,3 +12,5 @@ export function network(packets) {
 
   return result_packets; // 데이터 링크로 전송
 }
+
+export function res_network(data) {}

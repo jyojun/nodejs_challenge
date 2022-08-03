@@ -27,6 +27,7 @@ export function res_physical(bits) {
       temp,
       "\n"
     );
+    frame.push(temp);
   });
 
   return frame;
