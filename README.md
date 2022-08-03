@@ -13,6 +13,8 @@
     - [x] 100 데이터 씩 세그먼트 네트워크 계층으로 전송
   - 네트워크 계층 (Network Layer)
     - [x] source_ip, destination_ip를 첨부한 패킷을 데이터링크 계층으로 전송
+  - 데이터 링크 게층 (Data Link Layer)
+    - [x] MAC 헤더를 붙여 물리 계층으로 전송
 ## 학습 메모
 
 - base64 인코딩

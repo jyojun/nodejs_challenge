@@ -4,7 +4,8 @@ export function network(packets) {
 
   let result_packets = [];
   packets.forEach((packet) => {
-    console.log(`>> 요청 { ${source_ip}, ${dest_ip}, [${packet}] }`);
+    console.log(">> 요청", packet);
+    console.log("{", source_ip, ",", dest_ip, packet, "}");
     console.log();
     result_packets.push([source_ip, dest_ip, packet]);
   });
