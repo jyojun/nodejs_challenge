@@ -72,6 +72,7 @@ export function res_transport(data) {
       mail += d[6];
     }
   });
+
   return mail;
 }
 
