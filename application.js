@@ -12,6 +12,6 @@ function application(from, to, title, content) {
 const from = "jk@boostcamp.connect.or.kr";
 const to = "camper@boostcamp.connect.or.kr";
 const title = "Hello World";
-const content = "Hello BoostCamper,\r\n\tThis message written by JK";
+const content = "Hello BoostCamper,\n\tThis message written by JK.\n";
 
 application(from, to, title, content);

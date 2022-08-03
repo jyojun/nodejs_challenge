@@ -1,6 +1,7 @@
 {
   "name": "day13",
   "version": "1.0.0",
+  "type": "module",
   "description": "## 체크 포인트",
   "main": "index.js",
   "scripts": {
