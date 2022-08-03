@@ -1,6 +1,7 @@
 import { application } from "./application.js";
 import { presentation } from "./presentation.js";
 import { session } from "./session.js";
+import { transport } from "./transport.js";
 
 const from = "jk@boostcamp.connect.or.kr";
 const to = "camper@boostcamp.connect.or.kr";
@@ -12,3 +13,7 @@ let application_output = application(from, to, title, content);
 let presentation_output = presentation(application_output);
 
 let session_output = session(presentation_output);
+
+let transport_output = transport(session_output);
+
+console.log(transport_output);
