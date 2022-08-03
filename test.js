@@ -4,7 +4,7 @@ import { session } from "./session.js";
 import { transport } from "./transport.js";
 import { network } from "./network.js";
 import { data_link } from "./data_link.js";
-import { physical } from "./physical.js";
+import { physical, res_physical } from "./physical.js";
 
 const from = "jk@boostcamp.connect.or.kr";
 const to = "camper@boostcamp.connect.or.kr";
@@ -25,3 +25,5 @@ let network_output = network(transport_output);
 let data_link_output = data_link(network_output);
 
 let physical_output = physical(data_link_output);
+
+let data_link_input = res_physical(physical_output);
