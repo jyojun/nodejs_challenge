@@ -15,6 +15,8 @@
     - [x] source_ip, destination_ip를 첨부한 패킷을 데이터링크 계층으로 전송
   - 데이터 링크 게층 (Data Link Layer)
     - [x] MAC 헤더를 붙여 물리 계층으로 전송
+  - 물리 계층 (Physical Layer)
+    - [x] 전송 받은 프레임을 16진수로 저장.
 ## 학습 메모
 
 - base64 인코딩
