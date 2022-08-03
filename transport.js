@@ -60,6 +60,21 @@ export const transport = (data) => {
   return result_segments;
 };
 
+export function res_transport(data) {
+  let mail = "";
+  data.forEach((d) => {
+    if (d[0] === "SYN" || d[0] === "ACK" || d[0] === "DATA") {
+      receivePacket(d, ...d.slice(1));
+    } else {
+      sendPacket(d, ...d.slice(1));
+    }
+    if (d[0] === "DATA") {
+      mail += d[6];
+    }
+  });
+  return mail;
+}
+
 function sendPacket(packet, source_port, dest_port, seq_num, ack_num, len) {
   console.log(">> Sending Packet :", packet);
   console.log("Source Port :", source_port);
@@ -69,7 +84,7 @@ function sendPacket(packet, source_port, dest_port, seq_num, ack_num, len) {
   console.log("Content-Length :", len);
 
   const result = [packet, source_port, dest_port, seq_num, ack_num, len];
-  console.log(result, "\n");
+  if (!Array.isArray(packet)) console.log(result, "\n");
   return result;
 }
 
@@ -79,9 +94,11 @@ function receivePacket(packet, source_port, dest_port, seq_num, ack_num, len) {
   console.log("Destination Port :", dest_port);
   console.log("Sequence Number :", seq_num);
   console.log("Ack Number :", ack_num);
+  console.log("Content-Length : ", len);
 
   const result = [packet, source_port, dest_port, seq_num, ack_num, len];
-  console.log(result, "\n");
+  if (!Array.isArray(packet)) console.log(result, "\n");
+  else console.log();
   return result;
 }
 

@@ -1,7 +1,7 @@
 import { application } from "./application.js";
 import { presentation } from "./presentation.js";
 import { session } from "./session.js";
-import { transport } from "./transport.js";
+import { transport, res_transport } from "./transport.js";
 import { network, res_network } from "./network.js";
 import { data_link, res_data_link } from "./data_link.js";
 import { physical, res_physical } from "./physical.js";
@@ -33,4 +33,6 @@ let data_link_input = res_physical(physical_output);
 
 let network_input = res_data_link(data_link_input);
 
-let transprot_input = res_network(network_input);
+let transport_input = res_network(network_input);
+
+let session_input = res_transport(transport_input);
