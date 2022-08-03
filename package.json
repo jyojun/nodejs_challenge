@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b"
   },
-  "homepage": "https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b"
+  "homepage": "https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
 }

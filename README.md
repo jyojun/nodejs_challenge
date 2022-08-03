@@ -5,8 +5,9 @@
   - 응용 계층 (Application Layer)
     - [x] From 주소, to 주소, title, 첨부 파일 내용을 표현 계층에 넘겨준다. 
   - 표현 계층 (Presentation Layer)
-    - [ ] base64 인코딩, 디코딩 구현
-    - [ ]
+    - [x] base64 인코딩, 디코딩 구현
+  - 세션 계층 (Session Layer)
+    - [x] uuid-v4 랜덤 값으로 session-id 생성 
 ## 학습 메모
 
 - base64 인코딩
