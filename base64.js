@@ -1,6 +1,7 @@
 const base64_table =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+// 인코딩
 export function base64(str) {
   // 1. 문자열 -> 아스키 코드 변환
   let ascii = [];
