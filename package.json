@@ -1,0 +1,24 @@
+{
+  "name": "day14",
+  "version": "1.0.0",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/4c9fe80a2d39dc2afce0096491bcd7b6.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/4c9fe80a2d39dc2afce0096491bcd7b6"
+  },
+  "homepage": "https://gist.github.com/4c9fe80a2d39dc2afce0096491bcd7b6",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "request": "^2.88.2"
+  }
+}
