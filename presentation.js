@@ -1,4 +1,5 @@
 import { base64_encoder, base64_decoder } from "./base64.js";
+import fs from "fs";
 
 export function presentation(data) {
   const content = data.split("\r\n");
@@ -16,8 +17,9 @@ export function res_presentation(data) {
   const decoded_content =
     temp.slice(0, 4).join("\r\n") + "\r\n" + decoded_result;
 
-  writeFileSync("./attachment.file", decoded_result);
+  fs.writeFileSync("./attachment.file", decoded_result);
 
   console.log(">> 수신 데이터");
+  console.log(decoded_content);
   return decoded_content;
 }
