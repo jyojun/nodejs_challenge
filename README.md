@@ -31,10 +31,12 @@
     - [x] 세션 id 확인 후 출력
   - 표현 계층 
     - [x] base64 디코더 구현
-    - [x] attachment.file 생성
+    - [x] 실행 시 attachment.file 생성
   - 물리 계층 따로 구현 x.. 
 
 - 실행 결과
+![image](https://user-images.githubusercontent.com/64758931/182735681-651a41a5-24a5-4df5-b116-4d262c3cee04.png)
+
 ## 학습 메모
 
 - base64 인코딩
