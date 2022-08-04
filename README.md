@@ -16,6 +16,15 @@
 
 ![image](https://user-images.githubusercontent.com/64758931/182864178-ed72cb82-2c6d-44bf-9b41-3ec954e5cd38.png)
 
+![image](https://user-images.githubusercontent.com/64758931/182973947-695d88d3-5d45-43d7-b754-04eda493185c.png)
+
+### 실행
+
+```shell
+npm i 
+npm run input.js
+```
+
 
 ## 학습 메모
 
