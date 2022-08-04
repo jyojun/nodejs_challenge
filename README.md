@@ -4,6 +4,7 @@
 #### 1. 전송 계층
   - 응용 계층 (Application Layer)
     - [x] From 주소, to 주소, title, 첨부 파일 내용을 표현 계층에 전달 
+    - [ ] 사용자로 부터 입력을 받는 기능은 구현 x.
   - 표현 계층 (Presentation Layer)
     - [x] base64 인코딩값 세션 계층으로 전달
   - 세션 계층 (Session Layer)
