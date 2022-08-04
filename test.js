@@ -6,10 +6,10 @@ import { network, res_network } from "./network.js";
 import { data_link, res_data_link } from "./data_link.js";
 import { physical, res_physical } from "./physical.js";
 
-const from = "jk@boostcamp.connect.or.kr";
-const to = "camper@boostcamp.connect.or.kr";
-const title = "Hello World";
-const content = "Hello BoostCamper,\n\tThis message written by JK.\n";
+const from = "hyojun@gmail.com";
+const to = "anonymouse@gmail.com";
+const title = "hi";
+const content = "Hello there,\n\tThis message written by Hyojun.\n";
 
 // 전송 계층
 

@@ -71,7 +71,7 @@ export function base64_decoder(str) {
   for (let i = 0; i < temp.length; i += 8) {
     if (temp.slice(i, i + 8).length < 8) {
       eight_bit.push(
-        temp.slice(i, i + 8) + "0".repleat(8 - temp.slice(i, i + 8).length)
+        temp.slice(i, i + 8) + "0".repeat(8 - temp.slice(i, i + 8).length)
       );
       break;
     }
