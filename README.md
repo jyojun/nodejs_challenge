@@ -3,6 +3,8 @@
 ## 체크 포인트
 - [x] HTTP GET 요청을 하여 응답한 HTML값 저장.
 - [x] cheerio html parser로 script, img 속성 주소값 저장.
+- [x] 응답 대기 시간 측정 및 출력
+- [x] 다운로드 시간 측정 및 출력
 
 ## 학습 메모
 
@@ -30,4 +32,8 @@ getData().then(function(data) {
 서버에 제대로 응답을 받으면 resolve() 메서드 호출
 응답이 없으면 reject() 메서드 호출.
 호출된 메서드에 따라 then() 이나 catch()로 분기하여 응답 결과 또는 오류 호출
+
+- 호출 응답 시간 -> request time option
+https://stackoverflow.com/questions/18106825/nodejs-request-library-get-the-response-time
+
 
