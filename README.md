@@ -30,13 +30,14 @@
     - [x] 받은 세그먼트 정보중 DATA만 처리하여 합쳐 전달.
   - 세션 계층 (Session Layer)
     - [x] 세션 id 확인 후 출력
-  - 표현 계층 
+  - 표현 계층 (Presentation Layer)
     - [x] base64 디코더 구현
     - [x] 실행 시 attachment.file 생성
-  - 물리 계층 따로 구현 x.. 
+  - application 계층 따로 구현 x.. 
 
 - 실행 결과
-![image](https://user-images.githubusercontent.com/64758931/182735681-651a41a5-24a5-4df5-b116-4d262c3cee04.png)
+![image](https://user-images.githubusercontent.com/64758931/182737011-26656f9a-45e0-4be6-a356-81a31a5656b5.png)
+
 
 ## 학습 메모
 
