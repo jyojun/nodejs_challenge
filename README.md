@@ -6,6 +6,9 @@
 - [x] 응답 대기 시간 측정 및 출력
 - [x] 다운로드 시간 측정 및 출력
 
+![image](https://user-images.githubusercontent.com/64758931/182864178-ed72cb82-2c6d-44bf-9b41-3ec954e5cd38.png)
+
+
 ## 학습 메모
 
 #### 프로미스 예제
