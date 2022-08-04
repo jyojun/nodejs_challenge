@@ -1,6 +1,6 @@
-const readline = require("readline");
-const get_link = require("./index");
-const { Counter } = require("./counter");
+import readline from "readline";
+import { get_link } from "./index.js";
+import { Counter } from "./counter.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -10,8 +10,3 @@ rl.question("> ", function (line) {
   get_link(line);
   rl.close();
 });
-
-// get_link("https://m.naver.com");
-
-const counter = new Counter();
-counter.display();

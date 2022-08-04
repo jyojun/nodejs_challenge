@@ -1,5 +1,6 @@
 {
   "name": "day14",
+  "type": "module",
   "version": "1.0.0",
   "description": "## 체크 포인트",
   "main": "index.js",

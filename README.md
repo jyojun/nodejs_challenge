@@ -1,10 +1,18 @@
 # Day14
 
 ## 체크 포인트
-- [x] HTTP GET 요청을 하여 응답한 HTML값 저장.
-- [x] cheerio html parser로 script, img 속성 주소값 저장.
+- [x] HTTP GET 요청을 하여 응답한 HTML값 저장. (URL 입력 후 HTTP 요청 보내기)
+- [x] cheerio html parser로 script, img 속성 주소값 저장. (HTML 파싱 - src 속성 탐색 구현)
 - [x] 응답 대기 시간 측정 및 출력
 - [x] 다운로드 시간 측정 및 출력
+- [x] 요청 도메인 개수 측정 및 출력
+- [x] 전체 요청 개수 측정 및 출력
+- [x] 전체 이미지 개수 측정 및 출력
+- [x] 전체 코드 개수 측정 및 출력
+- [x] 전체 전송 용량 측정 및 출력
+- [ ] 리다이렉트 개수 측정 및 출력
+- [ ] 응답 - 리소스 메모리 캐싱 구현
+- [ ] 캐싱 데이터 측정 및 출력
 
 ![image](https://user-images.githubusercontent.com/64758931/182864178-ed72cb82-2c6d-44bf-9b41-3ec954e5cd38.png)
 
