@@ -1,7 +1,7 @@
 import https from "https";
 import cheerio from "cheerio";
 import request from "request";
-import url from "url";
+import chalk from "chalk";
 import { Counter } from "./counter.js";
 
 const counter = new Counter();
@@ -14,28 +14,39 @@ function get_link(link) {
     });
 
     res.on("end", () => {
-      getDownload(link);
       get_src(data);
     });
   });
 }
-function get_src(data) {
+async function get_src(data) {
   const $ = cheerio.load(data);
   const $script = $("script");
   $script.each((i, element) => {
     let src = element.attribs.src;
-    if (src) getDownload(src);
+    if (src)
+      getDownload(src).then(() => {
+        console.log(chalk.green("loading.."));
+      });
   });
 
   const $img = $("img");
   $img.each((i, element) => {
     let src = element.attribs.src;
-    if (src) getDownload(src);
+    if (src) getDownload(src).then(() => {});
+  });
+
+  const $link = $("link");
+  $link.each((i, element) => {
+    let href = element.attribs.href;
+    if (href)
+      getDownload(href).then(() => {
+        console.log(chalk.green("loading.."));
+      });
   });
 
   setTimeout(() => {
     counter.display();
-  }, 2000);
+  }, 1000);
 }
 
 // get_link("https://m.naver.com");
@@ -74,6 +85,8 @@ function getDownload(url) {
         console.log("대기 시간", `${wait_time}ms`); // res.timings.end == res.elapsedTime
         console.log("다운로드 시간", `${download_time}ms`);
         console.log();
+
+        resolve();
       }
     );
   });

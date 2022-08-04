@@ -19,6 +19,7 @@
   },
   "homepage": "https://gist.github.com/4c9fe80a2d39dc2afce0096491bcd7b6",
   "dependencies": {
+    "chalk": "^5.0.1",
     "cheerio": "^1.0.0-rc.12",
     "request": "^2.88.2"
   }

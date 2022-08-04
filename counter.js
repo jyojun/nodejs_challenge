@@ -6,10 +6,14 @@ export class Counter {
     this.code = 0;
     this.size = 0;
     this.redirects = 0;
-    this.load_time = 0;
+    this.total_time = 0;
     this.largest_size = 0;
     this.longest_wait_time = 0;
     this.longest_download_time = 0;
+
+    this.largest_size_file = "";
+    this.longest_wait_time_file = "";
+    this.longest_download_time_file = "";
   }
 
   display() {
@@ -21,11 +25,22 @@ export class Counter {
       "전송용량 : ",
       `${Math.round((this.size / 1024) * 100) / 100}MB`
     );
-    console.log("리다이렉트 개수 : ", this.redirects);
-    console.log("전체 로딩 시간 : ", this.load_time);
-    console.log("가장 큰 용량 : ", `${this.largest_size}KB`);
-    console.log("가장 오랜 대기 시간 : ", `${this.longest_wait_time}ms`);
-    console.log("가장 오랜 다운로드 시간: ", `${this.longest_download_time}ms`);
+    console.log(
+      "전체 로딩 시간 : ",
+      `${Math.round((this.total_time / 1024) * 100) / 100}ms`
+    );
+    console.log(
+      "가장 큰 용량 : ",
+      `${this.largest_size_file} ${this.largest_size}KB`
+    );
+    console.log(
+      "가장 오랜 대기 시간 : ",
+      `${this.longest_wait_time_file} ${this.longest_wait_time}ms`
+    );
+    console.log(
+      "가장 오랜 다운로드 시간: ",
+      `${this.longest_download_time_file} ${this.longest_download_time}ms`
+    );
   }
 
   update(domain, file, type, size, wait_time, download_time) {
@@ -40,18 +55,20 @@ export class Counter {
     if (type === "css" || type === "js") this.code++;
     this.size += size;
     if (this.largest_size < size) {
-      // this.largest_size[0] = file;
+      this.largest_size_file = file;
       this.largest_size = size;
     }
 
     if (this.longest_wait_time < wait_time) {
-      // this.longest_wait_time = file;
-      this.longest_size = wait_time;
+      this.longest_wait_time_file = file;
+      this.longest_wait_time = wait_time;
     }
 
     if (this.longest_download_time < download_time) {
-      // this.longest_downlaod_time[0] = file;
+      this.longest_download_time_file = file;
       this.longest_download_time = download_time;
     }
+
+    this.total_time += wait_time + download_time;
   }
 }
