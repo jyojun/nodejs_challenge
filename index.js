@@ -2,7 +2,7 @@ var https = require("https");
 var cheerio = require("cheerio");
 var request = require("request");
 
-const get_link = (link) => {
+function get_link(link) {
   https.get(link, (res) => {
     let data = "";
 
@@ -16,8 +16,8 @@ const get_link = (link) => {
 
     // console.log(data);
   });
-};
-const get_src = (data) => {
+}
+function get_src(data) {
   const $ = cheerio.load(data);
   const $script = $("script");
   $script.each((i, element) => {
@@ -30,9 +30,9 @@ const get_src = (data) => {
     let src = element.attribs.src;
     if (src) getDownload(src);
   });
-};
+}
 
-get_link("https://m.naver.com");
+// get_link("https://m.naver.com");
 
 function getDownload(url) {
   return new Promise((resolve, reject) => {
@@ -64,4 +64,4 @@ function getDownload(url) {
   });
 }
 
-console.log("here");
+module.exports = get_link;
