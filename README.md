@@ -29,6 +29,9 @@
     - [x] 받은 세그먼트 정보중 DATA만 처리하여 합쳐 전달.
   - 세션 계층 (Session Layer)
     - [x] 세션 id 확인 후 출력
+  - 표현 계층 
+    - [x] base64 디코더 구현
+    - [x] attachment.file 생성
 ## 학습 메모
 
 - base64 인코딩

@@ -1,5 +1,5 @@
 import { application } from "./application.js";
-import { presentation } from "./presentation.js";
+import { presentation, res_presentation } from "./presentation.js";
 import { session, res_session } from "./session.js";
 import { transport, res_transport } from "./transport.js";
 import { network, res_network } from "./network.js";
@@ -38,3 +38,5 @@ let transport_input = res_network(network_input);
 let session_input = res_transport(transport_input);
 
 let presentation_input = res_session(session_input);
+
+let physical_input = res_presentation(presentation_input);
