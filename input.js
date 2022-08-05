@@ -16,7 +16,7 @@ rl.question("> https://", function (line) {
   );
   get_link("https://" + line);
   // } else {
-  console.log("please enter valide url");
+  // console.log("please enter valide url");
   rl.close();
   // }
 });

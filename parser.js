@@ -52,7 +52,7 @@ async function get_src(data) {
 // get_link("https://m.naver.com");
 
 function getDownload(url) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     request(
       { url, time: true, resolveWithFullResponse: true },
       (err, res, body) => {
@@ -77,13 +77,13 @@ function getDownload(url) {
         let wait_time = Math.round(res.timings.response * 100) / 100;
         counter.update(domain, file, type, size, wait_time, download_time);
         console.log(">>", file);
-        console.log("도메인", domain);
-        console.log("스킴", scheme);
-        console.log("경로", path);
-        console.log("종류", type);
-        console.log("용량", `${size}KB`); // content-length 없는 경우.
-        console.log("대기 시간", `${wait_time}ms`); // res.timings.end == res.elapsedTime
-        console.log("다운로드 시간", `${download_time}ms`);
+        console.log("Domain :", domain);
+        console.log("Scheme :", scheme);
+        console.log("Path :", path);
+        console.log("Type :", type);
+        console.log("Size :", `${size}KB`); // content-length 없는 경우.
+        console.log("Wait Time", `${wait_time}ms`); // res.timings.end == res.elapsedTime
+        console.log("Download Time", `${download_time}ms`);
         console.log();
 
         resolve();
