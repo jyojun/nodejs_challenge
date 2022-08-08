@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://gist.github.com/c3353eab79471baa56e5ddb8da1f83da"
   },
-  "homepage": "https://gist.github.com/c3353eab79471baa56e5ddb8da1f83da"
+  "homepage": "https://gist.github.com/c3353eab79471baa56e5ddb8da1f83da",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
 }
