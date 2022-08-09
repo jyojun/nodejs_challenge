@@ -7,11 +7,11 @@ export class Chef {
   cooking() {
     let result = [];
     this.cooking_queue.map((food) => {
-      food[1]--;
+      food[2]--;
       console.log(
-        `${this.name} 요리사 ${food[0]} 요리중~ 완성까지 ${food[1]}분 남음`
+        `${this.name} 요리사 ${food[1]} 요리중~ 완성까지 ${food[2]}분 남음`
       );
-      if (food[1] <= 0) {
+      if (food[2] <= 0) {
         result.push(food);
         this.cooking_queue.shift();
       }
@@ -27,18 +27,19 @@ export class Deliverer {
     this.deliverying_queue = [];
   }
 
-  delivering() {
+  deliverying() {
     let result = [];
     this.deliverying_queue.map((food) => {
-      food[1]--;
+      food[2]--;
       console.log(
-        `${this.name} 배달원 ${food[0]} 배달중~ 도착까지 ${food[1]}분 남음`
+        `${this.name} 배달원 ${food[1]} 배달중~ 도착까지 ${food[2]}분 남음`
       );
-      if (food[1] <= 0) {
+      if (food[2] <= 0) {
         result.push(food);
         this.deliverying_queue.shift();
       }
     });
+    return result;
   }
 }
 

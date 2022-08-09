@@ -27,7 +27,11 @@ rl.on("line", (input) => {
   if (input === "quit") {
     rl.close();
   } else {
-    let temp = input.split(":");
-    manager.order([...menu[temp[0]]], parseInt(temp[1]));
+    let temp = input.split(",");
+    let customer = temp[0];
+    let food_num = parseInt(temp[1].split(":")[0]);
+    let food_time = parseInt(temp[1].split(":")[1]);
+    console.log(customer, food_num, food_time);
+    manager.order(customer, [...menu[food_num]], food_time);
   }
 });

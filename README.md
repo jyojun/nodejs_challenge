@@ -1,12 +1,17 @@
 # Day17
 
 ## 체크 포인트
-- [x] waiting, cooking queue 및 1초마다 이벤트 처리(setInterval) - Manager
+- [x] waiting, cooking queue 및 1초마다 이벤트 처리(setInterval) - Manager 모듈/객체 요구사항 구현(POS 포함)
 - [x] 비동기 입력받기 (readline on() 함수로 계속 입력 대기)
 - [x] 1단계 단일 요리사(Chef) 모듈/객체 요구사항 구현
 ![Aug-09-2022 22-39-01](https://user-images.githubusercontent.com/64758931/183664226-68238a6a-ce46-48b9-b186-0293325bdff5.gif)
 
 - [x] 2단계 복수 요리사(Chef) 모듈/객체 요구사항 구현 - 한 요리사당 2개의 요리까지 동시에 요리할 수 있음. 
 ![Aug-10-2022 02-15-44](https://user-images.githubusercontent.com/64758931/183715474-cfd90a2a-cf98-4706-ae62-1665d24cc8b5.gif)
+
+- [x] 배달기사 모듈/객체 요구사항 구현 -> 고객에 상관없이 한번에 하나의 메뉴만 가능.. (한 고객의 여러 음식을 배달하지 못함)
+- [x] 현재 진행중인 메뉴 제작/요리상태/배달상태 출력
+- [ ] 고객별 전체 메뉴 확인 기능 구현
+- [ ] 3명 이상 요리사 스케줄링 구현
 
 ## 학습 메모
