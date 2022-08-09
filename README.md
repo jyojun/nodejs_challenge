@@ -7,4 +7,6 @@
 ![Aug-09-2022 22-39-01](https://user-images.githubusercontent.com/64758931/183664226-68238a6a-ce46-48b9-b186-0293325bdff5.gif)
 
 - [x] 2단계 복수 요리사(Chef) 모듈/객체 요구사항 구현 - 한 요리사당 2개의 요리까지 동시에 요리할 수 있음. 
+![Aug-10-2022 02-15-44](https://user-images.githubusercontent.com/64758931/183715474-cfd90a2a-cf98-4706-ae62-1665d24cc8b5.gif)
+
 ## 학습 메모
