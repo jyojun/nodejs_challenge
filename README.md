@@ -18,4 +18,7 @@
 - [ ] 고객별 전체 메뉴 확인 기능 구현
 - [ ] 3명 이상 요리사 스케줄링 구현
 
+<img src="https://user-images.githubusercontent.com/64758931/183778189-9a398d05-e938-4ade-9d28-647eac3e1a41.png" width="500"/>
+
+
 ## 학습 메모
