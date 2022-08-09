@@ -39,7 +39,7 @@ export class Manager {
       console.log(`====================주문 경과===================\n
       요리중 : /${this.queue["cooking"].join(",")}/\n
       대기중 : /${this.queue["waiting"].join(",")}/\n
-      완성: /${this.queue["finished"].join(",")}/\n`);
+      배달 대기중: /${this.queue["finished"].join(",")}/\n`);
 
       let not_working_chefs = this.chefs.filter(
         (chef) => chef.cooking_queue.length === 0
