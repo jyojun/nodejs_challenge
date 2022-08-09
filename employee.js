@@ -9,7 +9,7 @@ export class Chef {
     this.cooking_queue.map((food) => {
       food[2]--;
       console.log(
-        `${this.name} 요리사 ${food[1]} 요리중~ 완성까지 ${food[2]}분 남음`
+        `${this.name} 요리사 ${food[0]}고객의 ${food[1]} 요리중~ 완성까지 ${food[2]}분 남음`
       );
       if (food[2] <= 0) {
         result.push(food);
@@ -32,7 +32,7 @@ export class Deliverer {
     this.deliverying_queue.map((food) => {
       food[2]--;
       console.log(
-        `${this.name} 배달원 ${food[1]} 배달중~ 도착까지 ${food[2]}분 남음`
+        `${this.name} 배달원 ${food[0]}고객의 ${food[1]} 배달중~ 도착까지 ${food[2]}분 남음`
       );
       if (food[2] <= 0) {
         result.push(food);
