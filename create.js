@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const re = / +/g;
-class Create_Table {
+export class Create_Table {
   constructor(command) {
     let temp = command
       .replace("(", "")
@@ -35,18 +35,21 @@ class Create_Table {
     if (fs.existsSync(`./${this.name}.csv`)) {
       throw Error("Table already exists");
     } else {
-      fs.writeFileSync("./test.csv", this.result, { encoding: "utf-8" });
+      fs.writeFileSync(`./${this.name}.csv`, this.result, {
+        encoding: "utf-8",
+      });
+      console.log(`${this.name} table created!`);
     }
   }
 }
 
-const create_table = new Create_Table(
-  "CREATE TABLE test (name String, year Numeric, song String)"
-);
+// const create_table = new Create_Table(
+//   "CREATE TABLE test (name String, year Numeric, song String)"
+// );
 
 // const create_table2 = new Create_Table(
 //   "CREATE TABLE test (nick_name String, year Numeric, song String)"
 // );
 
-create_table.create();
+// create_table.create();
 // create_table2.create();

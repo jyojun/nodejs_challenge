@@ -3,36 +3,8 @@ import fs from "fs";
 const command =
   "INSERT INTO test (singer, year, song) VALUES (BTS, 2020, Dynamite)";
 const re = / +/g;
-// let temp = command
-//   .replaceAll("(", "")
-//   .replaceAll(")", "")
-//   .replaceAll(",", "")
-//   .split(re);
 
-// console.log(temp);
-// let table_name = temp[2];
-// temp = temp.splice(3, temp.length - 1);
-// console.log(temp);
-// let columns = temp.splice(0, temp.indexOf("VALUES"));
-// let values = temp.splice(temp.indexOf("VALUES") + 1, temp.length - 1);
-// console.log(columns, values);
-
-// const data = fs.readFileSync("./test.csv", { encoding: "utf-8" });
-
-// let lastId;
-// if (data.split("\n").length <= 2) {
-//   lastId = 0;
-// } else {
-//   lastId = parseInt(
-//     data.split("\n")[data.split("\n").length - 2].split(",")[0]
-//   );
-// }
-// console.log(lastId);
-
-// const insertData = `${++lastId},` + values.join(",") + "\n";
-// fs.appendFileSync("./test.csv", insertData, { encoding: "utf-8" });
-
-class Insert_Into {
+export class Insert_Into {
   constructor(command) {
     let temp = command
       .replaceAll("(", "")
@@ -44,17 +16,30 @@ class Insert_Into {
     let columns = temp.splice(0, temp.indexOf("VALUES"));
     let values = temp.splice(temp.indexOf("VALUES") + 1, temp.length - 1);
 
-    if (columns.length !== values.length)
-      throw Error("Values shouldn't be null");
     this.name = table_name;
     this.columns = columns;
     this.values = values;
     this.lastId;
+
+    if (columns.length !== values.length) {
+      console.log("칼럼과 값의 갯수가 다릅니다.");
+      return;
+      // throw Error("Values shouldn't be null");
+    }
   }
   getLastId() {
-    if (!fs.existsSync(`./${this.name}.csv`))
-      throw Error("Table does not exists");
+    if (!fs.existsSync(`./${this.name}.csv`)) {
+      console.log("테이블이 존재하지 않습니다.");
+      return;
+      //   throw Error("Table does not exists");
+    }
     let data = fs.readFileSync(`./${this.name}.csv`, { encoding: "utf-8" });
+
+    if (data.split("\n")[0].split(",").length - 1 !== this.columns.length) {
+      console.log("컬럼 갯수가 일치하지 않습니다.");
+      return;
+    }
+
     if (data.split("\n").length <= 2) {
       this.lastId = 1;
     } else {
@@ -66,13 +51,34 @@ class Insert_Into {
 
   insert() {
     this.getLastId();
+    if (this.lastId === undefined) return;
+    let types = [];
+    let data = fs.readFileSync(`./${this.name}.csv`, { encoding: "utf-8" });
+    data
+      .split("\n")[0]
+      .split(",")
+      .splice(1)
+      .forEach((d) => {
+        if (d[0] === "-") types.push("Numeric");
+        else if (d[0] === "+") types.push("String");
+      });
+
+    this.values = this.values.map((v, idx) => {
+      if (types[idx] === "String") return `"${v}"`;
+      else return v;
+    });
+
     const insertData = `${++this.lastId},` + this.values.join(",") + "\n";
-    fs.appendFileSync("./test.csv", insertData, { encoding: "utf-8" });
+    fs.appendFileSync(`./${this.name}.csv`, insertData, { encoding: "utf-8" });
+
+    console.log(
+      `Successfully INSERTED INTO ${this.name} (${this.values.join(", ")})`
+    );
   }
 }
 
-const insert = new Insert_Into(
-  "INSERT INTO test (singer, year, song) VALUES (BTS, 2022, Dynamite)"
-);
+// const insert = new Insert_Into(
+//   "INSERT INTO test (singer, year, song) VALUES (BTS, 2022, butter)"
+// );
 
-insert.insert();
+// insert.insert();
