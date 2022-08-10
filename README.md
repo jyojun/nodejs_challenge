@@ -69,6 +69,10 @@
 
 - EXPORT 구문
   - [x] 기존파일에 덮어쓰고, 조건에 맞는 데이터가 없으면 파일에 저장하지 않는다.
+  
+![image](https://user-images.githubusercontent.com/64758931/184041083-e2aa4b64-ae5d-43b0-b353-2da9cf88329e.png)
+![image](https://user-images.githubusercontent.com/64758931/184041117-6acb50cc-16a2-4398-92fd-70956cebca50.png)
+
 - IMPORT 구문
 
 
