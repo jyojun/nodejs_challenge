@@ -64,6 +64,8 @@
 - REPORT TABLE 구문
   - [x] 최초 레코드는 id 값 중에서 가장 작은 값, 마지막 레코드는 id 값 중에서 가장 큰 값을 출력
 
+![image](https://user-images.githubusercontent.com/64758931/184001564-ebb0f72d-dd6e-461a-b23e-58b6313eda12.png)
+
 
 - EXPORT 구문
 - IMPORT 구문
