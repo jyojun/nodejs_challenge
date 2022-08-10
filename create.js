@@ -1,12 +1,13 @@
 import fs from "fs";
 
+const re = / +/g;
 class Create_Table {
   constructor(command) {
     let temp = command
       .replace("(", "")
       .replace(")", "")
       .replaceAll(",", "")
-      .split(" ");
+      .split(re);
     let table_name = temp[2];
     let headers = temp.splice(3, temp.length - 1);
     let columns = headers.filter((h, idx) => idx % 2 === 0);
@@ -32,7 +33,7 @@ class Create_Table {
   create() {
     this.stringify();
     if (fs.existsSync(`./${this.name}.csv`)) {
-      throw Error("table already exists");
+      throw Error("Table already exists");
     } else {
       fs.writeFileSync("./test.csv", this.result, { encoding: "utf-8" });
     }
