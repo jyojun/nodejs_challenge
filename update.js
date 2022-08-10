@@ -44,7 +44,10 @@ export class Update {
       if (d.split(",")[cond_col_idx] === this.cond_value) {
         d = d.split(",").map((item, idx) => {
           if (idx === set_col_idx) {
-            if (head.split(",")[set_col_idx][0] === "+")
+            if (
+              head.split(",")[set_col_idx][0] === "+" &&
+              !this.set_value.includes('"')
+            )
               return `"${this.set_value}"`;
             return this.set_value;
           } else return item;

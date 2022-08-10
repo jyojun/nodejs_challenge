@@ -3,7 +3,6 @@ import fs from "fs";
 // SELECT FROM table_name(영소문자, 숫자, _) WHERE 칼럼명 = 값
 const re = /([a-zA-Z]+) +([a-zA-Z]+) +([a-zA-Z0-9_]+) +([a-zA-Z]+) +([a-zA-Z0-9_]+) +([>=<]) +([a-zA-Z0-9_"']+)/;
 
-console.log(re.exec(command));
 export class Select_From {
   constructor(command) {
     let result = re.exec(command);

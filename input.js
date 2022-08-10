@@ -3,6 +3,8 @@ import { Create_Table } from "./create.js";
 import { Insert_Into } from "./insert.js";
 import { Delete_From } from "./delete.js";
 import { Update } from "./update.js";
+import { Select_From } from "./select.js";
+import { Drop_Table } from "./drop.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -26,6 +28,12 @@ rl.on("line", (input) => {
     } else if (temp.toUpperCase() === "UPDATE") {
       let update = new Update(input);
       update.update();
+    } else if (temp.toUpperCase() === "SELECT") {
+      let select = new Select_From(input);
+      select.select();
+    } else if (temp.toUpperCase() === "DROP") {
+      let drop = new Drop_Table(input);
+      drop.drop();
     }
   }
 });

@@ -1,6 +1,9 @@
 # Day18
 
 ## 체크 포인트
+
+1. SQL 데이터 관리
+   
 - CREATE TABLE 구문
   - [x] 테이블을 생성할 때 테이블 이름(table_name)과 동일한 CSV 파일을 생성한다. 
   - [x] 지원하는 datatype은 숫자 Numeric, String 만 지원 -> type check error
@@ -30,4 +33,8 @@
   - [x] 레코드 갯수 표시
 
 - DROP TABLE 구문
+  - [x] 테이블 이름과 동일한 csv 파일 삭제 -> ulinkSync()
+
+
+
 ## 학습 메모
