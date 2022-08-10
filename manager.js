@@ -60,12 +60,8 @@ export class Manager {
 
       // 노는 요리사가 있고, 대기중인 음식이 있을 경우
       if (not_working_chefs.length > 0 && this.queue["waiting"].length > 0) {
-        // & cook.state = 'ready'
         let temp = this.queue["waiting"].shift();
-        // console.log(temp);
         not_working_chefs[0].cooking_queue.push(temp);
-        // this.queue["cooking"].push(temp); // 받은 주문 앞에 꺼 뽑아서 주문 대기큐에 집어넣음
-
         console.log(not_working_chefs[0].name, "요리사 요리 시작!", `-${temp}`);
         cnt = 0;
       } else if (
@@ -73,10 +69,7 @@ export class Manager {
         this.queue["waiting"].length > 0
       ) {
         let temp = this.queue["waiting"].shift();
-        // console.log(temp);
         one_food_chefs[0].cooking_queue.push(temp);
-        // this.queue["cooking"].push(temp); // 받은 주문 앞에 꺼 뽑아서 주문 대기큐에 집어넣음
-
         console.log(one_food_chefs[0].name, "요리사 요리 시작!", `-${temp}`);
         cnt = 0;
       }
@@ -100,10 +93,7 @@ export class Manager {
         this.queue["finished"].length > 0
       ) {
         let temp = this.queue["finished"].shift();
-        // console.log(temp);
         not_working_deliverers[0].deliverying_queue.push(temp);
-        // this.queue["cooking"].push(temp); // 받은 주문 앞에 꺼 뽑아서 주문 대기큐에 집어넣음
-
         console.log(
           not_working_deliverers[0].name,
           "배달원 배달 시작!",
