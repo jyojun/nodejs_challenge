@@ -27,6 +27,7 @@ export class Insert_Into {
       // throw Error("Values shouldn't be null");
     }
   }
+
   getLastId() {
     if (!fs.existsSync(`./${this.name}.csv`)) {
       console.log("테이블이 존재하지 않습니다.");
