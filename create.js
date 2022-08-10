@@ -13,8 +13,10 @@ export class Create_Table {
     let columns = headers.filter((h, idx) => idx % 2 === 0);
     let types = headers.filter((h, idx) => idx % 2 !== 0);
 
-    if (columns.length > 9) throw Error("columns should be not more than 9");
-
+    if (columns.length > 9) {
+      console.log("칼럼수는 9개 미만!");
+      return;
+    }
     this.name = table_name;
     this.columns = columns;
     this.types = types;
@@ -35,7 +37,8 @@ export class Create_Table {
   create() {
     this.stringify();
     if (fs.existsSync(`./${this.name}.csv`)) {
-      throw Error("Table already exists");
+      console.log("이미 테이블이 존재합니다.");
+      return;
     } else {
       fs.writeFileSync(`./${this.name}.csv`, this.result, {
         encoding: "utf-8",

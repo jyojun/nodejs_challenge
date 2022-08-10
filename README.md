@@ -59,5 +59,14 @@
 
 ![image](https://user-images.githubusercontent.com/64758931/183995002-28936911-3db1-47eb-9f28-88b2bb780cdf.png)
 
+2. 리포트와 내보내기
+
+- REPORT TABLE 구문
+  - [x] 최초 레코드는 id 값 중에서 가장 작은 값, 마지막 레코드는 id 값 중에서 가장 큰 값을 출력
+
+
+- EXPORT 구문
+- IMPORT 구문
+
 
 ## 학습 메모

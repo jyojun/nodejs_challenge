@@ -13,8 +13,9 @@ export class Insert_Into {
       .split(re);
     let table_name = temp[2];
     temp = temp.splice(3, temp.length - 1);
-    let columns = temp.splice(0, temp.indexOf("VALUES"));
-    let values = temp.splice(temp.indexOf("VALUES") + 1, temp.length - 1);
+
+    let columns = temp.splice(0, temp.indexOf("values"));
+    let values = temp.splice(temp.indexOf("values") + 1, temp.length - 1);
 
     this.name = table_name;
     this.columns = columns;
