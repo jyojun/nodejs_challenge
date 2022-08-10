@@ -2,6 +2,7 @@ import readline from "readline";
 import { Create_Table } from "./create.js";
 import { Insert_Into } from "./insert.js";
 import { Delete_From } from "./delete.js";
+import { Update } from "./update.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -22,6 +23,9 @@ rl.on("line", (input) => {
     } else if (temp.toUpperCase() === "DELETE") {
       let del = new Delete_From(input);
       del.delete();
+    } else if (temp.toUpperCase() === "UPDATE") {
+      let update = new Update(input);
+      update.update();
     }
   }
 });

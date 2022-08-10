@@ -28,6 +28,7 @@ export class Insert_Into {
     }
   }
 
+  // 마지막 레코드의 id 값을 받음.
   getLastId() {
     if (!fs.existsSync(`./${this.name}.csv`)) {
       console.log("테이블이 존재하지 않습니다.");
@@ -50,11 +51,15 @@ export class Insert_Into {
     }
   }
 
+  // csv 맨 마지막에 append write 한다.
   insert() {
     this.getLastId();
+
+    // lastId가 존재하지 않은 경우
     if (this.lastId === undefined) return;
     let types = [];
     let data = fs.readFileSync(`./${this.name}.csv`, { encoding: "utf-8" });
+
     data
       .split("\n")[0]
       .split(",")

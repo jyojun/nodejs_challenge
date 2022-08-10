@@ -21,6 +21,7 @@ export class Create_Table {
     this.result = "";
   }
 
+  // 테이블을 만들기 위해 헤더를 scv string 형태로 만든다.
   stringify() {
     this.columns = this.columns.map((c, idx) => {
       if (this.types[idx] === "String") return "+" + c;
@@ -30,6 +31,7 @@ export class Create_Table {
     this.result = "-id," + this.columns.join(",") + "\n";
   }
 
+  // csv style string 을 만들고 write
   create() {
     this.stringify();
     if (fs.existsSync(`./${this.name}.csv`)) {
