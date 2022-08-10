@@ -6,6 +6,7 @@ import { Update } from "./update.js";
 import { Select_From } from "./select.js";
 import { Drop_Table } from "./drop.js";
 import { Report_Table } from "./report.js";
+import { Export_Table } from "./export.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -38,6 +39,9 @@ rl.on("line", (input) => {
     } else if (temp.toUpperCase() === "REPORT") {
       let report = new Report_Table(input);
       report.report();
+    } else if (temp.toUpperCase() === "EXPORT") {
+      let exp = new Export_Table(input);
+      exp.export();
     }
   }
 });
