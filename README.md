@@ -74,6 +74,8 @@
 ![image](https://user-images.githubusercontent.com/64758931/184041117-6acb50cc-16a2-4398-92fd-70956cebca50.png)
 
 - IMPORT 구문
+  - [ ] 컬럼 개수가 일치하지 않으면 추가하지 않는다.
+  - [x] 기존에 데이터와 겹치는 항목은 추가하지 않는다.
 
 
 ## 학습 메모
