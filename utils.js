@@ -33,3 +33,13 @@ export function insertGroup(groups, client) {
     }
   }
 }
+
+export function popGroup(groups, client) {
+  let groupNum = client.groupNum;
+  for (let i = 0; i < groups[groupNum].length; i++) {
+    if (groups[groupNum][i] === client) {
+      groups[groupNum].splice(i, 1);
+      break;
+    }
+  }
+}

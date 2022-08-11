@@ -35,7 +35,24 @@ brew install telnet
 
 
 - checkout
-  - [ ] 특정 클라이언트가 checkout 요청을 보내면 checkin 했던 그룹에서 퇴장한다. 
+  - [x] 특정 클라이언트가 checkout 요청을 보내면 checkin 했던 그룹에서 퇴장한다. -> 해당 group에서 checkout한 client를 제거한다. 
+
+```javascript
+
+// 해당 그룹을 찾아 그 인덱스에 해당하는 client 제거 
+export function popGroup(groups, client) {
+  let groupNum = client.groupNum;
+  for (let i = 0; i < groups[groupNum].length; i++) {
+    if (groups[groupNum][i] === client) {
+      groups[groupNum].splice(i, 1);
+      break;
+    }
+  }
+}
+```
+  - [x] 해당 그룹에 다른 그룹이 한 명이라도 남아있다면, 누군가 퇴장했다는 것을 message로 알려준다.
+
+
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 

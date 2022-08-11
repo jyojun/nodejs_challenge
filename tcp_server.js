@@ -1,5 +1,5 @@
 import net from "net";
-import { insertGroup } from "./utils.js";
+import { insertGroup, popGroup } from "./utils.js";
 
 let HOST = "127.0.0.1";
 let PORT = 2022;
@@ -30,21 +30,36 @@ let server = net.createServer(function (client) {
         client.write(
           `체크인에 성공했습니다! GROUP#${client.groupNum}에 들어오셨습니다.`
         );
+        // group braodcasting
+        for (const c of groups[client.groupNum]) {
+          if (c !== client)
+            c.write(
+              `${client.campId}님께서 GROUP#${client.groupNum}에서 들어오셨습니다.`
+            );
+        }
         break;
 
       // checkout
       case "CHECKOUT":
-        client.write("checkout success");
         // todo 1: groups에서 해당 client 찾아서 pop 해줘야함
+        popGroup(groups, client);
+
+        // group braodcasting
+        for (const c of groups[client.groupNum]) {
+          c.write(
+            `${client.campId}님께서 GROUP#${client.groupNum}에서 퇴장했습니다.`
+          );
+        }
+        client.write(`체크아웃 완료! GROUP#${client.groupNum}에서 퇴장합니다.`);
+        console.log(
+          `${client.campId}님께서 Session#${client.sessionNum}에서 체크아웃 합니다.`
+        );
         client.end();
     }
   });
 
   client.on("end", function () {
-    console.log("Client disconnected");
-    server.getConnections(function (err, count) {
-      console.log("Remaining Connections: " + count);
-    });
+    console.log(`${client.campId} 연결 끊김.`);
   });
 
   client.on("error", function (err) {
