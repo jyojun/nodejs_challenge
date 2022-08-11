@@ -17,8 +17,13 @@ brew install telnet
 
 - checkin
   - [x] 서버에 처음 연결할 때, checkin 요청을 보낸다.
-  - [] campId check는 client에서 진행한다. (J001-J384) -> 응답 실패 메세지 포함, 재입력
+  - [x] campId check는 client에서 진행한다. (J001-J384) -> 응답 실패 메세지 포함, 재입력
   - [x] checkin을 한 상태에서는 checkin을 할 수 없게 한다.
+  - [x] 최대 4명까지 가능하고, 그 이후 다른 그룹에 할당.
+  - [x] checkin의 응답으로 그룹 번호를 정수형으로 알려준다.   
+
+- checkout
+  - [ ] 특정 클라이언트가 checkout 요청을 보내면 checkin 했던 그룹에서 퇴장한다. 
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 

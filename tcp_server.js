@@ -14,7 +14,7 @@ let server = net.createServer(function (client) {
       // checkin
       case "CHECKIN":
         if (client.checkin === true) {
-          client.write(`${client.campId}님은 이미 체크아웃을 하셨습니다.`);
+          client.write(`${client.campId}님은 이미 체크인을 하셨습니다.`);
           break;
         }
         // 빈 그룹에 client 집어넣기
