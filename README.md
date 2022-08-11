@@ -100,6 +100,8 @@ export function popGroup(groups, client) {
 - 활동시간 표시
   - [x] 클라이언트는 checkin, checkout 성공한 시간 차이를 계산하여 종료하기 전에 표시한다.
 
+![image](https://user-images.githubusercontent.com/64758931/184256825-a5f8b3f8-e00f-4065-81ec-6e9175edbe15.png)
+
 
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
