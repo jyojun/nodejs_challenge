@@ -4,11 +4,13 @@ import {
   popGroup,
   missionToKeyword,
   maxCountToNumber,
+  directMessage,
 } from "./utils.js";
 
 let HOST = "127.0.0.1";
 let PORT = 2022;
 
+let clients = [];
 let groups = [[]];
 let sessionNum = 0;
 
@@ -16,6 +18,7 @@ let peersession = {};
 let maxCount = {};
 
 let server = net.createServer(function (client) {
+  clients.push(client);
   client.on("data", function (data) {
     let d = JSON.parse(data);
     switch (d.type) {
@@ -166,6 +169,28 @@ let server = net.createServer(function (client) {
             c.write(
               `피어세션 잔여 메세지가 모두 소진되었습니다. 피어세션을 종료해주세요~`
             );
+        }
+        break;
+
+      case "DIRECT":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
+
+        let receiver = directMessage(d.content).receiver;
+        let message = directMessage(d.content).message;
+
+        for (let i = 0; i < clients.length; i++) {
+          if (clients[i].campId === receiver && clients[i].checkin) {
+            client.write(
+              `<DM> ${clients[i].campId}님에게 성공적으로 보냈습니다.`
+            );
+            clients[i].write(`<DM> from ${client.campId} : "${message}"`);
+            console.log(
+              `<DM> from Session#${client.sessionNum}(${client.campId}) => to="${receiver}", text = "${message}"`
+            );
+          }
         }
         break;
     }

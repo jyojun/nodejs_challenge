@@ -58,6 +58,13 @@ client.on("connect", () => {
             type: "COMPLETE",
           })
         );
+      } else if (temp[0] === "direct") {
+        client.write(
+          JSON.stringify({
+            type: "DIRECT",
+            content: `${line.replace("direct", "").replace(",", "").trim()}`,
+          })
+        );
       }
     }
   });

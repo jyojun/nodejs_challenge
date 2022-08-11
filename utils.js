@@ -60,5 +60,17 @@ export function maxCountToNumber(line) {
   return result[3];
 }
 
+export function directMessage(line) {
+  const re = /([a-zA-Z]+) +([a-zA-Z0-9]+) +([^]+)/;
+
+  const result = re.exec(line);
+  return {
+    receiver: result[2],
+    message: result[3],
+  };
+}
+
 // console.log(missionToKeyword("day9"));
 // console.log(maxCountToNumber("maxCount = 13"));
+
+// console.log(directMessage("to J004 힘내세요 !! ㅎㅎㅎㅎ 하하하"));

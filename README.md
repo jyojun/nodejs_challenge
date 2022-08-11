@@ -86,6 +86,8 @@ export function popGroup(groups, client) {
 ![image](https://user-images.githubusercontent.com/64758931/184234042-77c79c86-eeab-4a60-9f11-5b6ce9f831df.png)
 ![image](https://user-images.githubusercontent.com/64758931/184234079-109f5a7a-9177-4cb2-a03c-56d2c6f5b1ce.png)
 
+- direct
+  - [x] 직접 특정한 캠퍼에게 보내는 메세지. campId, text 문자열로 입력받는다.
 
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
