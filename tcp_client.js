@@ -38,6 +38,20 @@ client.on("connect", () => {
             content: `${temp[1]}`,
           })
         );
+      } else if (temp[0] === "peersession") {
+        client.write(
+          JSON.stringify({
+            type: "PEERSESSION",
+            content: `${line.replace("peersession", "").trim()}`,
+          })
+        );
+      } else if (temp[0] === "message") {
+        client.write(
+          JSON.stringify({
+            type: "MESSAGE",
+            content: `${line.replace("message", "").trim()}`,
+          })
+        );
       }
     }
   });

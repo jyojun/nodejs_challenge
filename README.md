@@ -65,7 +65,17 @@ export function popGroup(groups, client) {
 ![image](https://user-images.githubusercontent.com/64758931/184213178-30ebbab8-8319-4e12-bf7a-5e94bd2f1224.png)
 ![image](https://user-images.githubusercontent.com/64758931/184213224-2952abbb-48ad-4fdf-96da-a5fcd14c4d19.png)
 
+- peersession
+  - [x] 피어세션 요청을 보내면 같은 그룹에 있는 사람들과 브로드 캐스트를 한다.
+  - [x] maxCount를 정수형으로 보낸다.
+  - [x] maxCount를 넘어가면 더이상 메세지를 주고받을 수 없다.
 
+- message
+  - [x] 메세지 요청을 보내면 peersession 진행중인 경우는 모두에게 브로드캐스트 되지만, 그렇지 않은 경우는 무시된다.
+  - [x] 메세지 요청의 데이터는 text로 문자열을 받을 수 있다.
+
+
+- complete
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 

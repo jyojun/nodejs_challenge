@@ -53,4 +53,12 @@ export function missionToKeyword(day) {
   return mission[result[2]];
 }
 
+export function maxCountToNumber(line) {
+  const re = /([a-zA-Z]+) *([=]) *([0-9]+)/;
+
+  const result = re.exec(line);
+  return result[3];
+}
+
 // console.log(missionToKeyword("day9"));
+// console.log(maxCountToNumber("maxCount = 13"));

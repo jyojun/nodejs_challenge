@@ -1,11 +1,19 @@
 import net from "net";
-import { insertGroup, popGroup, missionToKeyword } from "./utils.js";
+import {
+  insertGroup,
+  popGroup,
+  missionToKeyword,
+  maxCountToNumber,
+} from "./utils.js";
 
 let HOST = "127.0.0.1";
 let PORT = 2022;
 
 let groups = [[]];
 let sessionNum = 0;
+
+let peersession = {};
+let maxCount = {};
 
 let server = net.createServer(function (client) {
   client.on("data", function (data) {
@@ -78,6 +86,62 @@ let server = net.createServer(function (client) {
         console.log(
           `Session#${client.sessionNum} ${client.campId}님의 ${d.content} 키워드 => ${keyword}`
         );
+        break;
+
+      case "PEERSESSION":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
+
+        let count = maxCountToNumber(d.content);
+
+        if (peersession[client.groupNum]) {
+          client.write(
+            `이미 GROUP#${client.groupNum}의 피어세션이 진행중입니다.`
+          );
+          break;
+        } else {
+          // 피어세션 groupNum 키값에 해당 client가 권한을 갖음
+          peersession[client.groupNum] = client;
+          for (const c of groups[client.groupNum]) {
+            c.write(
+              `GROUP#${client.groupNum}의 피어세션이 시작되었습니다. ${count}개 메세지까지 주고받을 수 있습니다.`
+            );
+          }
+
+          console.log(
+            `GROUP#${client.groupNum}의 피어세션이 시작되었습니다. => maxCount = ${count}`
+          );
+
+          maxCount[client.groupNum] = count;
+        }
+
+        break;
+
+      case "MESSAGE":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
+
+        if (peersession[client.groupNum] && maxCount[client.groupNum] > 0) {
+          maxCount[client.groupNum]--;
+          for (const c of groups[client.groupNum])
+            c.write(
+              `${client.campId}: "${d.content}" 현재 피어세션 잔여메세지 : ${
+                maxCount[client.groupNum]
+              }개`
+            );
+        }
+
+        if (maxCount[client.groupNum] <= 0) {
+          delete maxCount[client.groupNum];
+          for (const c of groups[client.groupNum])
+            c.write(
+              `피어세션 잔여 메세지가 모두 소진되었습니다. 피어세션을 종료해주세요~`
+            );
+        }
         break;
     }
   });
