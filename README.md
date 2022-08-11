@@ -103,6 +103,53 @@ export function popGroup(groups, client) {
 ![image](https://user-images.githubusercontent.com/64758931/184256825-a5f8b3f8-e00f-4065-81ec-6e9175edbe15.png)
 
 
+### 피어세션 실행
+
+
+- Echo server
+```shell
+# 에코서버 실행
+node echo_server.js
+```
+
+- 챌린지 서버
+```shell
+# 챌린지 서버 실행
+
+# 서버 먼저 실행 후,
+node tcp_server.js
+
+# 터미널 하나 이상 더 열고 클라이언트 실행,
+node tcp_client.js
+```
+
+```shell
+# 앞 명령어는 모두 소문자로만 입력해주세요.
+
+# checkin 요청
+checkin (J001-J384) # campId는 대문자 J만 가능
+
+# checkout 요청
+checkout
+
+# mission 요청
+mission (day1-day19)
+
+# peersession 요청
+peersession maxCount = (카운트수)
+
+# complete 요청
+complete
+
+# message 요청
+message 입력할 메세지
+
+# direct 요청
+direct to (보낼 캠퍼 id) (보낼 메세지) # 캠퍼가 서버에 없으면 안보내짐
+```
+
+
+
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 
