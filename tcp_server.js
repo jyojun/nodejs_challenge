@@ -1,29 +1,11 @@
 import net from "net";
+import { insertGroup } from "./utils.js";
 
 let HOST = "127.0.0.1";
 let PORT = 2022;
 
-let clients = [];
 let groups = [[]];
 let sessionNum = 0;
-
-// todo: 모듈화
-function insertGroup(client) {
-  for (let i = 0; i < groups.length; i++) {
-    if (groups[i].length < 4) {
-      groups[i].push(client);
-      client.groupNum = i; // 그룹 index
-      break;
-    } else {
-      if (i == groups.length - 1) {
-        let temp = [client];
-        client.groupNum = i + 1;
-        groups.push(temp);
-        break;
-      }
-    }
-  }
-}
 
 let server = net.createServer(function (client) {
   client.on("data", function (data) {
@@ -36,16 +18,18 @@ let server = net.createServer(function (client) {
           break;
         }
         // 빈 그룹에 client 집어넣기
-        insertGroup(client);
+        insertGroup(groups, client);
 
         client.campId = d.content;
         client.sessionNum = sessionNum++;
         client.checkin = true;
 
         console.log(
-          `checkin ${client.campId} (success) from ${client.remoteAddress}:${client.remotePort} => session#${client.sessionNum}, group#${client.groupNum}`
+          `${client.campId}님 체크인 성공! IP: ${client.remoteAddress}:${client.remotePort} => session#${client.sessionNum}, group#${client.groupNum}`
         );
-        client.write("checkin success");
+        client.write(
+          `체크인에 성공했습니다! GROUP#${client.groupNum}에 들어오셨습니다.`
+        );
         break;
 
       // checkout

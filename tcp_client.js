@@ -1,5 +1,6 @@
 import net from "net";
 import readline from "readline";
+import { check_camp_id } from "./utils.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -20,12 +21,16 @@ client.on("connect", () => {
     } else {
       let temp = line.split(" ");
       if (temp[0] === "checkin") {
-        client.write(
-          JSON.stringify({
-            type: "CHECKIN",
-            content: `${temp[1]}`,
-          })
-        );
+        if (check_camp_id(temp[1])) {
+          client.write(
+            JSON.stringify({
+              type: "CHECKIN",
+              content: `${temp[1]}`,
+            })
+          );
+        } else {
+          console.log("캠퍼 아이디를 다시 적어주세요!");
+        }
       }
     }
   });
