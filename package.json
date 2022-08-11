@@ -1,0 +1,21 @@
+{
+  "name": "day19",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/055733b85d6bd3f0c0ab32f6c8704ca8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/055733b85d6bd3f0c0ab32f6c8704ca8"
+  },
+  "homepage": "https://gist.github.com/055733b85d6bd3f0c0ab32f6c8704ca8"
+}
