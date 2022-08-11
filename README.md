@@ -62,6 +62,9 @@ export function popGroup(groups, client) {
   - [x] 체크인 이후에는 mission 요청을 보내서 키워드를 받을 수 있다.
   - [x] 서버에서 정수형을 확인해서 키워드를 보내준다.
 
+![image](https://user-images.githubusercontent.com/64758931/184213178-30ebbab8-8319-4e12-bf7a-5e94bd2f1224.png)
+![image](https://user-images.githubusercontent.com/64758931/184213224-2952abbb-48ad-4fdf-96da-a5fcd14c4d19.png)
+
 
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
