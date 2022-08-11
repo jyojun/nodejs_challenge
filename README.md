@@ -18,9 +18,17 @@ brew install telnet
 - checkin
   - [x] 서버에 처음 연결할 때, checkin 요청을 보낸다.
   - [x] campId check는 client에서 진행한다. (J001-J384) -> 응답 실패 메세지 포함, 재입력
+  ![image](https://user-images.githubusercontent.com/64758931/184178667-b9a40fc6-0daf-4c59-8456-5452d9b38eb7.png)
+
   - [x] checkin을 한 상태에서는 checkin을 할 수 없게 한다.
+  ![image](https://user-images.githubusercontent.com/64758931/184178463-1c80d7a4-941b-4cbb-a441-f5c02f3574e6.png)
+
   - [x] 최대 4명까지 가능하고, 그 이후 다른 그룹에 할당.
+  ![image](https://user-images.githubusercontent.com/64758931/184178330-47f6bcbf-aaba-4cc3-9621-966ea800f2ef.png)
+
   - [x] checkin의 응답으로 그룹 번호를 정수형으로 알려준다.   
+  ![image](https://user-images.githubusercontent.com/64758931/184178803-22365a1a-c7ee-4121-bfb4-af4434dac0c2.png)
+
 
 - checkout
   - [ ] 특정 클라이언트가 checkout 요청을 보내면 checkin 했던 그룹에서 퇴장한다. 
