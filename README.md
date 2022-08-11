@@ -80,6 +80,12 @@
 - 이제 막 export 한 똑같은 파일일 때, 새로운 레코드를 하나 추가했을 떄 
 ![image](https://user-images.githubusercontent.com/64758931/184043279-189bc5a9-136a-4689-833f-286ba58493db.png)
 
+### 실행
 
+```javascript
+node input.js
+```
+
+- create table을 하는 경우를 제외하고 string 값을 비교할 때 따옴표(" ") 붙여야함...
 
 ## 학습 메모
