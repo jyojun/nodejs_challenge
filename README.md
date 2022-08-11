@@ -74,6 +74,9 @@ export function popGroup(groups, client) {
   - [x] 메세지 요청을 보내면 peersession 진행중인 경우는 모두에게 브로드캐스트 되지만, 그렇지 않은 경우는 무시된다.
   - [x] 메세지 요청의 데이터는 text로 문자열을 받을 수 있다.
 
+![image](https://user-images.githubusercontent.com/64758931/184225541-6155913b-3134-44aa-9fde-8581ad8ee59e.png)
+![image](https://user-images.githubusercontent.com/64758931/184225593-5412cbcb-c795-4d00-9f54-6e7f1797473f.png)
+![image](https://user-images.githubusercontent.com/64758931/184225379-8f72cda1-55eb-4efb-be81-42d438ee1d70.png)
 
 - complete
 ## 학습 메모
