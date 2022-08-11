@@ -37,6 +37,7 @@ brew install telnet
 - checkout
   - [x] 특정 클라이언트가 checkout 요청을 보내면 checkin 했던 그룹에서 퇴장한다. -> 해당 group에서 checkout한 client를 제거한다. 
 
+
 ```javascript
 
 // 해당 그룹을 찾아 그 인덱스에 해당하는 client 제거 
@@ -50,7 +51,11 @@ export function popGroup(groups, client) {
   }
 }
 ```
+
   - [x] 해당 그룹에 다른 그룹이 한 명이라도 남아있다면, 누군가 퇴장했다는 것을 message로 알려준다.
+
+![image](https://user-images.githubusercontent.com/64758931/184199598-36576a10-a8e4-4a6e-a91d-1fb3ff7dd583.png)
+![image](https://user-images.githubusercontent.com/64758931/184199640-692d80ce-abef-4d14-97fc-358be44874f7.png)
 
 
 ## 학습 메모
