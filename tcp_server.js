@@ -3,21 +3,57 @@ import net from "net";
 let HOST = "127.0.0.1";
 let PORT = 2022;
 
-let server = net.createServer(function (client) {
-  console.log("Client Connected");
-  console.log("local = %s:%s", client.localAddress, client.localPort);
-  console.log("remote = %s:%s", client.remoteAddress, client.remotePort);
+let clients = [];
+let groups = [[]];
+let sessionNum = 0;
 
+// todo: 모듈화
+function insertGroup(client) {
+  for (let i = 0; i < groups.length; i++) {
+    if (groups[i].length < 4) {
+      groups[i].push(client);
+      client.groupNum = i; // 그룹 index
+      break;
+    } else {
+      if (i == groups.length - 1) {
+        let temp = [client];
+        client.groupNum = i + 1;
+        groups.push(temp);
+        break;
+      }
+    }
+  }
+}
+
+let server = net.createServer(function (client) {
   client.on("data", function (data) {
-    console.log(
-      "Received data from client on port %d: %s",
-      client.remotePort,
-      data.toString()
-    );
-    console.log("Bytes received: " + client.bytesRead);
-    client.write("Echo: " + data);
-    console.log("Bytes sent: " + client.bytesWritten);
-    client.end();
+    let d = JSON.parse(data);
+    switch (d.type) {
+      // checkin
+      case "CHECKIN":
+        if (client.checkin === true) {
+          client.write(`${client.campId}님은 이미 체크아웃을 하셨습니다.`);
+          break;
+        }
+        // 빈 그룹에 client 집어넣기
+        insertGroup(client);
+
+        client.campId = d.content;
+        client.sessionNum = sessionNum++;
+        client.checkin = true;
+
+        console.log(
+          `checkin ${client.campId} (success) from ${client.remoteAddress}:${client.remotePort} => session#${client.sessionNum}, group#${client.groupNum}`
+        );
+        client.write("checkin success");
+        break;
+
+      // checkout
+      case "CHECKOUT":
+        client.write("checkout success");
+        // todo 1: groups에서 해당 client 찾아서 pop 해줘야함
+        client.end();
+    }
   });
 
   client.on("end", function () {

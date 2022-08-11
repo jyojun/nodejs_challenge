@@ -15,7 +15,10 @@ brew install telnet
 
 ### 챌린지 서버 만들기
 
-
+- checkin
+  - [x] 서버에 처음 연결할 때, checkin 요청을 보낸다.
+  - [] campId check는 client에서 진행한다. (J001-J384) -> 응답 실패 메세지 포함, 재입력
+  - [x] checkin을 한 상태에서는 checkin을 할 수 없게 한다.
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 
