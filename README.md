@@ -93,6 +93,9 @@ export function popGroup(groups, client) {
 ![image](https://user-images.githubusercontent.com/64758931/184240132-dc44b2b8-2f69-4bd1-8dc8-b987823d6fbf.png)
 ![image](https://user-images.githubusercontent.com/64758931/184240209-74b46487-342a-478d-b3b7-9343b41a379b.png)
 
+보낸사람 끼리만 볼 수 있다.  (private message)
+![image](https://user-images.githubusercontent.com/64758931/184240758-4b77f5a9-0466-491b-ae7d-548be0baaea0.png)
+
 
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
