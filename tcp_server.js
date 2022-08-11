@@ -119,6 +119,31 @@ let server = net.createServer(function (client) {
 
         break;
 
+      case "COMPLETE":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
+
+        if (peersession[client.groupNum]) {
+          if (peersession[client.groupNum] === client) {
+            delete peersession[client.groupNum];
+            for (const c of groups[client.groupNum])
+              c.write(`GROUP#${client.groupNum}의 피어세션을 종료합니다.`);
+            console.log(`GROUP#${client.groupNum}의 피어세션을 종료합니다.`);
+          } else {
+            client.write(
+              `현재 진행중인 GROUP#${
+                client.groupNum
+              } 피어에션 complete 권한이 없습니다. -> ${
+                peersession[client.groupNum].campId
+              }님 권한`
+            );
+          }
+        }
+
+        break;
+
       case "MESSAGE":
         if (client.checkin !== true) {
           client.write(`체크인을 먼저 해주세요.`);

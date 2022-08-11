@@ -79,6 +79,8 @@ export function popGroup(groups, client) {
 ![image](https://user-images.githubusercontent.com/64758931/184225379-8f72cda1-55eb-4efb-be81-42d438ee1d70.png)
 
 - complete
+  - [x] 피어세션 요청을 보낸 캠퍼가 complete를 보내면 피어세션을 멈출 수 있다.
+  - [x] 다시 브로드캐스트를 할 수 없다.
 ## 학습 메모
 - 특정 포트 죽이기 -> tcp server를 구동하다가 특정 port가 죽지 않고 있으면,
 

@@ -52,6 +52,12 @@ client.on("connect", () => {
             content: `${line.replace("message", "").trim()}`,
           })
         );
+      } else if (temp[0] === "complete") {
+        client.write(
+          JSON.stringify({
+            type: "COMPLETE",
+          })
+        );
       }
     }
   });
