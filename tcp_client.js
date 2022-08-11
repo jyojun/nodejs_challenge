@@ -31,6 +31,13 @@ client.on("connect", () => {
         } else {
           console.log("캠퍼 아이디를 다시 적어주세요!");
         }
+      } else if (temp[0] === "mission") {
+        client.write(
+          JSON.stringify({
+            type: "MISSION",
+            content: `${temp[1]}`,
+          })
+        );
       }
     }
   });

@@ -1,3 +1,5 @@
+import { mission } from "./mission.js";
+
 export function check_camp_id(id) {
   // 문자열 길이 4가 아니거나
   if (id.length !== 4) {
@@ -43,3 +45,12 @@ export function popGroup(groups, client) {
     }
   }
 }
+
+export function missionToKeyword(day) {
+  const re = /([a-zA-Z]{3})([0-9]+)/;
+
+  const result = re.exec(day);
+  return mission[result[2]];
+}
+
+// console.log(missionToKeyword("day9"));

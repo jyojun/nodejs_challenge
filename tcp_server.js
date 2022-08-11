@@ -1,5 +1,5 @@
 import net from "net";
-import { insertGroup, popGroup } from "./utils.js";
+import { insertGroup, popGroup, missionToKeyword } from "./utils.js";
 
 let HOST = "127.0.0.1";
 let PORT = 2022;
@@ -41,6 +41,10 @@ let server = net.createServer(function (client) {
 
       // checkout
       case "CHECKOUT":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
         // todo 1: groups에서 해당 client 찾아서 pop 해줘야함
         popGroup(groups, client);
 
@@ -55,6 +59,26 @@ let server = net.createServer(function (client) {
           `${client.campId}님께서 Session#${client.sessionNum}에서 체크아웃 합니다.`
         );
         client.end();
+        break;
+
+      case "MISSION":
+        if (client.checkin !== true) {
+          client.write(`체크인을 먼저 해주세요.`);
+          break;
+        }
+
+        let keyword = missionToKeyword(d.content);
+        if (!keyword) {
+          client.write("미션이 없던 날짜거나 해당 날짜의 키워드가 없습니다.");
+          break;
+        }
+        client.write(
+          `${JSON.stringify(d.content)}의 키워드는 ${keyword}입니다.`
+        );
+        console.log(
+          `Session#${client.sessionNum} ${client.campId}님의 ${d.content} 키워드 => ${keyword}`
+        );
+        break;
     }
   });
 
