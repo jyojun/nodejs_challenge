@@ -2,6 +2,9 @@ import net from "net";
 import readline from "readline";
 import { check_camp_id } from "./utils.js";
 
+let checkin_time;
+let checkout_time;
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -13,6 +16,7 @@ client.connect({ port: 2022, host: "localhost" });
 client.on("connect", () => {
   rl.on("line", function (line) {
     if (line === "checkout") {
+      checkout_time = new Date();
       client.write(
         JSON.stringify({
           type: "CHECKOUT",
@@ -22,6 +26,7 @@ client.on("connect", () => {
       let temp = line.split(" ");
       if (temp[0] === "checkin") {
         if (check_camp_id(temp[1])) {
+          checkin_time = new Date();
           client.write(
             JSON.stringify({
               type: "CHECKIN",
@@ -80,6 +85,8 @@ client.on("close", () => {
 
 client.on("end", function () {
   console.log("disconnected");
+  let diff = (checkout_time.getTime() - checkin_time.getTime()) / 1000;
+  console.log(`${diff.toFixed(2)}초 활동하였습니다.`);
 });
 
 client.on("error", function (err) {
