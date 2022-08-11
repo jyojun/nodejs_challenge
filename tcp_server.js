@@ -17,7 +17,7 @@ let server = net.createServer(function (client) {
     console.log("Bytes received: " + client.bytesRead);
     client.write("Echo: " + data);
     console.log("Bytes sent: " + client.bytesWritten);
-    client.destroy();
+    client.end();
   });
 
   client.on("end", function () {
@@ -43,4 +43,15 @@ server.listen(PORT, function () {
   server.on("error", function (err) {
     console.log("Server Error: ", JSON.stringify(err));
   });
+});
+
+// EADDRINUSE error 일 경우 server를 기다린다.
+server.on("error", function (e) {
+  if (e.code == "EADDRINUSE") {
+    console.log("Address in use, retrying...");
+    setTimeout(function () {
+      server.close();
+      server.listen(PORT, HOST);
+    }, 1000);
+  }
 });
