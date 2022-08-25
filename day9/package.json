@@ -1,0 +1,26 @@
+{
+  "name": "day9",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c"
+  },
+  "homepage": "https://gist.github.com/56f3ea0ae153afeb0140e56349929d8c",
+  "dependencies": {
+    "n": "^9.0.0",
+    "worker-thread": "^1.1.0",
+    "worker-threads": "^1.0.0"
+  }
+}
