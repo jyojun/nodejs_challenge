@@ -1,0 +1,25 @@
+{
+  "name": "day12",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node input.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/5107a268c67e702338d339d6f89084dd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/5107a268c67e702338d339d6f89084dd"
+  },
+  "homepage": "https://gist.github.com/5107a268c67e702338d339d6f89084dd",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
+}
