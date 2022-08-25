@@ -1,0 +1,20 @@
+{
+  "name": "day6",
+  "version": "1.0.0",
+  "description": "## 체크포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/e6a156c02294769f4063ba4e6cb56c6d.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/e6a156c02294769f4063ba4e6cb56c6d"
+  },
+  "homepage": "https://gist.github.com/e6a156c02294769f4063ba4e6cb56c6d"
+}
