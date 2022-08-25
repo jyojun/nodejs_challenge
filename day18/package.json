@@ -1,0 +1,27 @@
+{
+  "name": "day18",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/6b9cb1c534b413e3b94199d5582f250f.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/6b9cb1c534b413e3b94199d5582f250f"
+  },
+  "homepage": "https://gist.github.com/6b9cb1c534b413e3b94199d5582f250f",
+  "dependencies": {
+    "@types/faker": "^6.6.9",
+    "faker": "^6.6.6",
+    "Faker": "^0.7.2",
+    "fs": "^0.0.1-security"
+  }
+}
