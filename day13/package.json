@@ -1,0 +1,24 @@
+{
+  "name": "day13",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b"
+  },
+  "homepage": "https://gist.github.com/72c8b1798d7f2f79f4ddc45ce1183c5b",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
