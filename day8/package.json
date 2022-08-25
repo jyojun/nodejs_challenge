@@ -1,0 +1,21 @@
+{
+  "name": "day8",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "## 체크 포인트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/20da28fa2d56d8e6104b36db348183da.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/20da28fa2d56d8e6104b36db348183da"
+  },
+  "homepage": "https://gist.github.com/20da28fa2d56d8e6104b36db348183da"
+}
